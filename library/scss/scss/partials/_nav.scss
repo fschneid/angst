@@ -1,0 +1,179 @@
+nav.main {
+    height: calc(100% - 4rem);
+    width: 6.25vw;
+    position: fixed;
+    left: 0;
+    top: 2rem;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    z-index: 99999999;
+    
+    &.white{
+    color:white;    
+    }
+    
+   
+    .menuBtn {
+        width: 32px;
+        height: 32px;
+        .burger-icon {
+           
+            @include burger(32px, 3px, 5px, black, 2px);
+        
+        }
+        &.is-active .burger-icon {
+            @include burger-to-cross;
+        }
+    }
+    
+    .brandAuthor, .brand {
+        font-size: 1rem;
+        transform: rotate(-90deg);
+        white-space: nowrap;
+        font-family: $sans-serif;   
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        display: none;
+    }
+    
+    .brandAuthor{
+    font-family: $serif;
+    display: none;
+      font-size: 0.875rem;    
+    }
+    
+    .share {
+        span {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: block;
+            margin-top: 0.75rem;
+            background-image: url("../images/twitter.svg");
+            background-position: left top;
+            background-size: cover;
+            &:first-of-type {
+            background-image: url("../images/fb.svg");
+            }
+        }
+    }
+    
+          &.white{
+            color:white; 
+              
+              .burger-icon{
+                  &,&::before, &::after{
+                   background-color: white;      
+                  }  
+                  
+               
+              }  
+              
+          .share span{
+            background-position: right top;  
+          }      
+          
+    }
+}
+
+.menuLayer {
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    margin: 0;
+    top: 0;
+    z-index: 99999;
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(-100%);
+    
+    #menu-main{
+      list-style: none;
+    padding: 0;
+    margin: 0;    
+    }
+    
+    
+    li {
+        color: white;
+        font-size: 4rem;
+        letter-spacing: 0.25rem;
+        color: white;
+        font-family: $sans-serif;
+        margin-bottom: 4rem;
+        &.current-menu-item {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/*
+  (TEXT) PARAMS
+  =================
+  1. Namespace
+  2. Intensity
+  3. Text color
+  4. Background color (flat)
+  5. Highlight #1 color
+  6. Highlight #2 color
+  7. Width (px)
+  8. Height (px)
+*/
+
+@mixin textGlitch($name, $intensity, $textColor, $background, $highlightColor1, $highlightColor2, $width, $height) {
+  
+  color: $textColor;
+  position: relative;
+  $steps: $intensity;
+  
+  // Ensure the @keyframes are generated at the root level
+  @at-root {
+    // We need two different ones
+    @for $i from 1 through 2 {
+      @keyframes #{$name}-anim-#{$i} {
+        @for $i from 0 through $steps {
+          #{percentage($i*(1/$steps))} {
+            clip: rect(
+              random($height)+px,
+              $width+px,
+              random($height)+px,
+              0
+            );
+          }
+        }
+      }
+    }
+  }
+  &:before,
+  &:after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $background;
+    clip: rect(0, 0, 0, 0); 
+  }
+  &:after {
+    left: 2px;
+    text-shadow: -1px 0 $highlightColor1;
+    animation: #{$name}-anim-1 2s 2 linear alternate-reverse;
+  }
+  &:before {
+    left: -2px;
+    text-shadow: 2px 0 $highlightColor2; 
+    animation: #{$name}-anim-2 3s 2 linear alternate-reverse;
+  }
+  
+}
