@@ -34,7 +34,7 @@ body {
 .intro {
     @include make-col-ready();
     @include make-col(12);
-    background-color: red;
+    background-color: black;
     height: 100vh;
     color: white;
     text-transform: uppercase;
