@@ -1874,10 +1874,18 @@ h2 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 1.375rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+}
+
 p {
   font-size: 1.375rem;
   font-family: "leitura-news", serif;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .mejs-container {
@@ -3159,7 +3167,29 @@ body.home article header .text p {
   padding-right: 12.5vw;
 }
 
-.post .post-header {
+.single.single-format-quote {
+  overflow: hidden;
+}
+
+.single.single-format-quote #content {
+  padding-left: 50%;
+  padding-right: 0;
+}
+
+.post-header-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  left: -6.25vw;
+  right: -12.5vw;
+  background-position: center;
+  background-size: cover;
+}
+
+.post-header {
   width: 100%;
   height: 100vh;
   position: relative;
@@ -3178,20 +3208,7 @@ body.home article header .text p {
           align-items: flex-end;
 }
 
-.post .post-header .post-header-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 9;
-  left: -6.25vw;
-  right: -12.5vw;
-  background-position: center;
-  background-size: cover;
-}
-
-.post .post-header .headerText {
+.post-header .headerText {
   z-index: 99;
   position: relative;
   color: white;
@@ -3199,19 +3216,19 @@ body.home article header .text p {
   margin-bottom: 6.25vw;
 }
 
-.post .post-header .headerText h1 {
+.post-header .headerText h1 {
   margin-bottom: 2rem;
   letter-spacing: 0.4rem;
 }
 
-.post .post-header .headerText .excerpt {
+.post-header .headerText .excerpt {
   font-family: "fabrik", sans-serif;
   font-size: 1.6rem;
   margin-bottom: 2rem;
   display: block;
 }
 
-.post .post-header .headerText .author {
+.post-header .headerText .author {
   display: inline-block;
   text-transform: uppercase;
   position: relative;
@@ -3220,12 +3237,12 @@ body.home article header .text p {
   letter-spacing: 0.15rem;
 }
 
-.post .post-content {
+.post-content {
   padding-top: 3.125vw;
   max-width: 45rem;
 }
 
-.post .post-content > p:first-of-type:first-letter {
+.post-content > p:first-of-type:first-letter {
   font-family: "fabrik", sans-serif;
   font-size: 8rem;
   line-height: 0.75;
@@ -3233,16 +3250,16 @@ body.home article header .text p {
   float: left;
 }
 
-.post .post-content p + p {
+.post-content p + p {
   margin-top: 2rem;
 }
 
-.post .post-content .mejs-audio {
+.post-content .mejs-audio {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.post .post-content .video-container {
+.post-content .video-container {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
@@ -3251,7 +3268,7 @@ body.home article header .text p {
   margin-bottom: 2rem;
 }
 
-.post .post-content .video-container .poster {
+.post-content .video-container .poster {
   position: absolute;
   left: 0;
   top: 0;
@@ -3272,7 +3289,7 @@ body.home article header .text p {
   background-size: cover;
 }
 
-.post .post-content .video-container .poster:after {
+.post-content .video-container .poster:after {
   content: '';
   display: inline-block;
   width: 5rem;
@@ -3282,10 +3299,10 @@ body.home article header .text p {
   background-position: center;
 }
 
-.post .post-content .video-container iframe,
-.post .post-content .video-container object,
-.post .post-content .video-container embed,
-.post .post-content .video-container video {
+.post-content .video-container iframe,
+.post-content .video-container object,
+.post-content .video-container embed,
+.post-content .video-container video {
   position: absolute;
   top: 0;
   left: 0;
@@ -3293,29 +3310,77 @@ body.home article header .text p {
   height: 100%;
 }
 
-.post .post-content img {
+.post-content img {
   width: 100%;
   height: auto;
 }
 
-.post .post-content .alignleft {
+.post-content .alignleft {
   margin-left: -8rem;
 }
 
-.post .post-content .alignright {
+.post-content .alignright {
   margin-right: -22.5rem;
   float: right;
   padding: 2rem 0 2rem 2rem;
   margin-bottom: 0;
 }
 
-.post .post-content .wp-caption-text {
+.post-content .wp-caption-text {
   font-size: 1rem;
   color: white;
   background-color: #000;
   padding: 1rem;
   font-family: "fabrik", sans-serif;
   letter-spacing: 0.04rem;
+}
+
+.category-protokoll .post-header-image {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+  left: -12.5vw;
+  background-position: right;
+}
+
+.category-protokoll .textContainer {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 0 3.125vw;
+}
+
+.category-protokoll .textContainer p:last-of-type {
+  border-top: 4px solid #000;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-style: italic;
+}
+
+.category-protokoll .post-header {
+  height: auto;
+  padding-top: 6.25vw;
+}
+
+.category-protokoll .post-header .headerText {
+  z-index: 99;
+  position: relative;
+  color: #000;
+  max-width: 45rem;
+  margin-bottom: 6.25vw;
+  text-align: center;
+}
+
+.category-protokoll .post-header .headerText h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  letter-spacing: 0.01rem;
+}
+
+.category-protokoll .post-header .headerText .author {
+  border-color: black;
 }
 
 footer {
