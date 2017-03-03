@@ -44,7 +44,7 @@
 
 		<div id="container">
             
-					<nav class="main white" role="navigation">
+					<nav class="main" role="navigation">
                         
                        <div class="menuBtn"><div class="burger-icon"></div></div>  
                         

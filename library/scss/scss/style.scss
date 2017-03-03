@@ -28,13 +28,17 @@ body {
         nav {
             transform: translateX(-100%);
         }
+        
+        
+        
+        
     }
 }
 
 .intro {
     @include make-col-ready();
     @include make-col(12);
-    background-color: black;
+    background-color:black;
     height: 100vh;
     color: white;
     text-transform: uppercase;
@@ -50,9 +54,19 @@ body {
         border-style: solid;
         -webkit-filter: contrast(120%) brightness(80%) saturate(100%) grayscale(80%);
         filter: contrast(120%) brightness(80%) saturate(100%) grayscale(80%);
+        
+         &.introAnimation{
+         animation: intro 4s steps(1);
+         animation-fill-mode: forwards;    
+            
+        }
+        
         img {
             display: none;
         }
+        
+       
+        
     }
     .content,
     .innerContent {
@@ -93,6 +107,25 @@ body {
         }
     }
 }
+
+
+
+
+
+@keyframes intro {
+    25%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro1.jpg); }
+    20%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro2.jpg); }
+    30%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro3.jpg); }
+    40%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro4.jpg); }
+    50%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro5.jpg); }
+    60%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro6.jpg); }
+    70%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro7.jpg); }
+    80%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro8.jpg); }
+    90%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro9.jpg); }
+    100%   { background-image: url(../../../../../wp-content/uploads/2017/02/intro10.jpg); }
+}
+
+
 
 section {
     .content {
@@ -385,42 +418,74 @@ body.home {
 }
 
 .single #content {
-    padding: $mBig;
+    padding-left: $mBig*2;
+    padding-right: $mBig*2;
 }
 
 .post {
+        
     .post-header {
-        .post-header-image {
-            width: 100%;
-            height: 70vh;
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: flex-end;
+        
+        
+        
+            .post-header-image {
+           position: absolute 0 0 0 0;
+            z-index: 9;
+            left: -$mBig;
+            right: -$mBig*2;
             background-position: center;
             background-size: cover;
-        }
-    }
-    .post-content {
-        padding-top: $mBig/2;
-        max-width: 50rem;
-        margin: 0 auto;
-        .headerText {
-            margin-left: -8rem;
-            padding-bottom: 2rem;
-        }
-        h1 {
+            }
+        
+            .headerText {
+            z-index: 99;  
+            position: relative;
+            color: white;
+            max-width: 45rem; 
+            margin-bottom: $mBig;    
+            
+                
+            h1 {
             margin-bottom: 2rem;
-        }
-        .excerpt {
+            letter-spacing: 0.4rem; 
+                
+            }   
+                
+             .excerpt {
             font-family: $sans-serif;
             font-size: 1.6rem;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             display: block;
-        }
-        .author {
+                
+        }    
+                
+            .author {
             display: inline-block;
             text-transform: uppercase;
             position: relative;
             padding-top: 0.5rem;
-            border-top: 4px solid black;
+            border-top: 4px solid white;
+            letter-spacing: 0.15rem;    
+        }    
+                
         }
+            
+        
+    }
+    .post-content {
+        padding-top: $mBig/2;
+        max-width: 45rem;
+        
+       
+       
+        
         & > p:first-of-type:first-letter {
             font-family: $sans-serif;
             font-size: 8rem;
@@ -440,6 +505,9 @@ body.home {
             padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
+             margin-top: 2rem;
+            margin-bottom: 2rem;
+           
             .poster {
                 position: absolute;
                 left: 0;
@@ -473,16 +541,34 @@ body.home {
             left: 0;
             width: 100%;
             height: 100%;
+           
+
         }
         img {
             width: 100%;
             height: auto;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            &.alignleft {
+           
+            }
+            .alignleft {
                 margin-left: -8rem;
             }
+            
+            .alignright {
+                margin-right: -22.5rem;
+                float: right;
+                padding: 2rem 0 2rem 2rem;
+                margin-bottom: 0;
+            }
+        .wp-caption-text{
+        font-size: 1rem;
+        color:white;
+        background-color: $black;  
+        padding: 1rem;
+        font-family: $sans-serif;
+        letter-spacing: 0.04rem;    
+            
         }
+        
     }
 }
 

@@ -117,11 +117,28 @@ function overlay(){
 function intro(){
 
          
-jQuery('.preloader').waitForImages(function() {
+jQuery('.preloader').find("img").waitForImages(function() {
+       
 
-jQuery(this).find("img").remove();
+jQuery(this).remove();
+    
+    
+jQuery('.preloader').addClass("introAnimation");
+    
+    
+jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+    function(e) {
+    
+    quadratic(4,100)
+    
+    function quadratic (duration, range, current) {
+    return ((duration * 3) / Math.pow(range, 3)) * Math.pow(current, 2);
+    }
+    
+    setStart();
+    }) 
  
-imageReplace(1);    
+
     
 });
     
@@ -131,10 +148,11 @@ imageReplace(1);
     jQuery(".preloader").css("backgroundImage", 'url(' + url + ')');  
     if(num <= 10){imageReplace(num + 1)};
     if(num == 10){setStart()};
-    }, 300);
+    }, 600);
 }
     
     function setStart() {
+        
     TweenMax.to(jQuery("nav"), 0.6, {
         x: "0"
         , ease: Circ.easeOut
@@ -142,7 +160,7 @@ imageReplace(1);
     });
         
         
-   /* TweenMax.to(jQuery(".preloader"), 0.6, {
+    TweenMax.to(jQuery(".preloader"), 0.6, {
         borderLeftWidth: "6.25vw"
         , borderRightWidth: "6.25vw"
         , borderTopWidth: "6.25vw"
@@ -150,7 +168,7 @@ imageReplace(1);
         , force3D: true
         , ease: Circ.easeOut
         , delay:0.2
-    });*/
+    });
 }
         
 
