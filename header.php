@@ -15,7 +15,6 @@
 
 		<?php // mobile meta (hooray!) ?>
 		<meta name="HandheldFriendly" content="True">
-		<meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 		<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
@@ -44,14 +43,24 @@
 
 		<div id="container">
             
+            
+            <?php $classes = get_body_class(); ?>
+
+            <?php if (in_array('single-wpt_test', $classes)) { ?>
+            
+            <?php } else { ?>
+            
+           
+            
+            
 					<nav class="main" role="navigation">
                         
                        <div class="menuBtn"><div class="burger-icon"></div></div>  
                         
                         <span class="brand"><?php bloginfo('title'); ?></span>
-                        <span class="brandAuthor"><?php bloginfo('description'); ?></span>
                         
-                        <div class="share"><span></span><span></span></div> 
+                        
+                        <!--<div class="share"><span></span><span></span></div> -->
 
 
 					</nav>
@@ -73,3 +82,4 @@
 						)); ?>
                         </div> 
 
+                <?php } ?>

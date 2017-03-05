@@ -129,12 +129,6 @@ jQuery('.preloader').addClass("introAnimation");
 jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
     function(e) {
     
-    quadratic(4,100)
-    
-    function quadratic (duration, range, current) {
-    return ((duration * 3) / Math.pow(range, 3)) * Math.pow(current, 2);
-    }
-    
     setStart();
     }) 
  
@@ -159,12 +153,11 @@ jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animat
         , delay: 0.2
     });
         
+    jQuery(".scrollIndicator").addClass("animateIn");   
+        
         
     TweenMax.to(jQuery(".preloader"), 0.6, {
-        borderLeftWidth: "6.25vw"
-        , borderRightWidth: "6.25vw"
-        , borderTopWidth: "6.25vw"
-        , borderBottomWidth: "6.25vw"
+        borderBottomWidth: "6.25vw"
         , force3D: true
         , ease: Circ.easeOut
         , delay:0.2

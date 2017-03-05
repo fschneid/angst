@@ -11,9 +11,13 @@
 }
 
 $mBig: 6.25vw;
+
 $maxWidth: "(min-width: 1600px)";
 //slider
 @import "partials/flickity.min";
+
+@import "partials/_mixin.scss";
+
 //audio
 // typography
 @import "partials/typography";
@@ -21,6 +25,13 @@ $maxWidth: "(min-width: 1600px)";
 @import "partials/media";
 //
 @import 'partials/_nav.scss';
+//
+@import 'partials/_footer.scss';
+//
+@import 'partials/_quiz.scss';
+
+
+
 body {
     background-color: white;
     font-family: $sans-serif;
@@ -46,10 +57,13 @@ body {
         height: 100%;
         background-position: center;
         background-size: cover;
+        background-repeat: no-repeat;
         border-color: black;
         border-style: solid;
-        -webkit-filter: contrast(120%) brightness(80%) saturate(100%) grayscale(80%);
-        filter: contrast(120%) brightness(80%) saturate(100%) grayscale(80%);
+        
+       
+        -webkit-filter: contrast(120%) brightness(70%) saturate(100%) grayscale(80%);
+        filter: contrast(120%) brightness(70%) saturate(100%) grayscale(80%);
         &.introAnimation {
             animation: intro 4s steps(1);
             animation-fill-mode: forwards;
@@ -63,12 +77,36 @@ body {
         height: 100%;
     }
     .innerContent {
-        padding-bottom: 10rem;
+       
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
     }
+    
+    .scrollIndicator{
+    width: 3rem;
+    height: 3rem;
+
+    align-self: flex-end; 
+    position: relative;
+    top:-$mBig;  
+    background-repeat: no-repeat; 
+    background-position: center;
+    background-size: contain;    
+    transform: translateY(100%) rotate(-90deg);
+    transition: all 0.5s 0.5s;
+    opacity: 0;    
+    background-image: url(../images/arrow-left.svg);
+     
+        &.animateIn{
+        opacity: 1;    
+        transform: translateY(50%) rotate(-90deg);    
+        }    
+        
+        
+    }
+    
     .text {
         @include make-col-ready();
         @include make-col(12);
@@ -87,12 +125,12 @@ body {
         &:nth-of-type(2) {
             float: right;
             position: relative;
-            top: -1rem;
+           
             left: 3vw;
         }
         &:nth-of-type(1) {
             position: relative;
-            top: 2rem;
+            top: 3rem;
             left: 1vw;
         }
     }
@@ -100,34 +138,34 @@ body {
 
 @keyframes intro {
     25% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro1.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro1.jpg");
     }
     20% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro2.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro2.jpg");
     }
     30% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro3.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro3.jpg");
     }
     40% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro4.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro4.jpg");
     }
     50% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro5.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro5.jpg");
     }
     60% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro6.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro6.jpg");
     }
     70% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro7.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro7.jpg");
     }
     80% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro8.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro8.jpg");
     }
     90% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro9.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro9.jpg");
     }
     100% {
-        background-image: url(../../../../../wp-content/uploads/2017/02/intro10.jpg);
+        background-image: url("../../../../../wp-content/uploads/2017/02/intro10.jpg");
     }
 }
 
@@ -150,6 +188,12 @@ section {
         background-color: black;
         padding-top: $mBig;
         padding-bottom: $mBig;
+        
+        &.quiz{
+        padding-top: 0;  
+        padding-bottom: 0;    
+        }
+        
         .moreBtn {
             box-shadow: inset 0 4px 0px 0 white;
             color: white;
@@ -169,10 +213,11 @@ section {
         padding-top: $mBig;
         overflow: visible;
         .carousel-cell {
-            width: 80%;
+            width: 90%;
             display: flex;
             flex-direction: row;
             opacity: 0.4;
+            overflow: hidden;
             &.is-selected {
                 opacity: 1;
                 h2 {
@@ -184,7 +229,7 @@ section {
             padding-left: 1.5rem;
         }
         h2 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             white-space: nowrap;
             margin-bottom: 1.5rem;
             margin-left: -3rem;
@@ -201,9 +246,17 @@ section {
         .doubleCol {
             @include make-col-ready();
             @include make-col(6);
+            
+             @include media-breakpoint-down(md){
+                 @include make-col(12);    
+                }
+            
             article {
                 @include make-col-ready();
                 @include make-col(12);
+                
+                  
+                
                 &:first-of-type {
                     position: relative;
                     &::after {
@@ -236,6 +289,11 @@ section {
             background-color: white;
             margin-left: -2px;
             display: block;
+            
+        @include media-breakpoint-down(md){
+                 display: none;
+                }    
+            
         }
         article {
             padding-bottom: $mBig;
@@ -270,7 +328,15 @@ body.home {
         @include make-col(6);
         margin-bottom: $mBig;
         overflow: hidden;
-        &.category-video {
+        
+         @include media-breakpoint-down(md){
+            @include make-col(12);    
+            }
+        &.category-quiz{
+        margin-bottom: 0;    
+        }
+        
+        &.category-video,&.category-quiz {
             @include make-col(12);
             height: 500px;
             display: flex;
@@ -291,10 +357,7 @@ body.home {
                 align-items: center;
                 flex-direction: column;
             }
-            span:first-of-type {
-                font-family: $sans-serif;
-                letter-spacing: 0.8rem;
-                text-transform: uppercase;
+            h3 {
                 margin-bottom: 1rem;
                 display: block;
             }
@@ -438,6 +501,9 @@ body.home {
 }
 
 
+ $maxText : 72rem;  
+    $maxP : 42rem;
+
     .post-header-image {
             position: absolute 0 0 0 0;
             z-index: 9;
@@ -461,17 +527,18 @@ body.home {
             z-index: 99;
             position: relative;
             color: white;
-            max-width: 45rem;
-            margin-bottom: $mBig;
+
+            margin-bottom: 2rem;
             h1 {
                 margin-bottom: 2rem;
                 letter-spacing: 0.4rem;
             }
             .excerpt {
                 font-family: $sans-serif;
-                font-size: 1.6rem;
+                font-size: 1.375rem;
                 margin-bottom: 2rem;
                 display: block;
+                max-width: $maxP;
             }
             .author {
                 display: inline-block;
@@ -483,11 +550,19 @@ body.home {
             }
         }
     }
+
     
-    
+
     .post-content {
         padding-top: $mBig/2;
-        max-width: 45rem;
+        max-width: $maxText;
+       
+        
+        p{
+        max-width: $maxP;   
+              
+        }
+        
         & > p:first-of-type:first-letter {
             font-family: $sans-serif;
             font-size: 8rem;
@@ -502,6 +577,10 @@ body.home {
             margin-top: 1rem;
             margin-bottom: 1rem;
         }
+        
+        .maxVideo{
+        max-width: $maxP;    
+        }
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -509,6 +588,7 @@ body.home {
             overflow: hidden;
             margin-top: 2rem;
             margin-bottom: 2rem;
+           
             .poster {
                 position: absolute;
                 left: 0;
@@ -542,16 +622,23 @@ body.home {
             left: 0;
             width: 100%;
             height: 100%;
+           
         }
+        
+        .wp-caption, img{
+        max-width: $maxP;    
+        }
+        
         img {
             width: 100%;
             height: auto;
+            
         }
         .alignleft {
             margin-left: -8rem;
         }
         .alignright {
-            margin-right: -22.5rem;
+            
             float: right;
             padding: 2rem 0 2rem 2rem;
             margin-bottom: 0;
@@ -623,7 +710,3 @@ body.home {
     
 }
 
-footer {
-    padding: 0 $mBig;
-    text-align: right;
-}

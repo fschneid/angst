@@ -14,6 +14,16 @@
                 */
               ?>
 
+
+              <?php $classes = get_body_class(); ?>
+
+            <?php if (in_array('single-wpt_test', $classes)) { ?>
+
+             <?php the_content(); ?>
+            
+            <?php } else { ?>  
+            
+
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
                 <header class="post-header">
@@ -47,3 +57,6 @@
                 </section> <?php // end article section ?>
 
               </article> <?php // end article ?>
+
+                <?php } ?>  
+          
