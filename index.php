@@ -46,17 +46,17 @@
                             </div>     
                             </div>
                                 
-                            <?php if( $wp_query->current_post ==3 ){?> </div> </section><section class="padded"><div class="content"><div class="innerContent"><?php } ?> 
+                            <?php if( $wp_query->current_post == 4 ){?> </div> </section><section class="padded"><div class="content"><div class="innerContent"><?php } ?> 
                                 
                 
                             <?php } else { ?>
                             
                 
-                            <?php if( $wp_query->current_post == 8){?></div></div></section><section class="padded full facts"><div class="content"><div class="innerContent"><div class="doubleCol"><div class="innerContent"><?php } ?>
+                            <?php if( $wp_query->current_post == 9){?></div></div></section><section class="padded full facts"><div class="content"><div class="innerContent"><div class="doubleCol"><div class="innerContent"><?php } ?>
                 
-                             <?php if( $wp_query->current_post == 11){?></div></div></section><section class="padded"><div class="content"><div class="innerContent"><?php } ?>
+                             <?php if( $wp_query->current_post == 12){?></div></div></section><section class="padded"><div class="content"><div class="innerContent"><?php } ?>
                 
-                             <?php if( $wp_query->current_post == 14){?></div></div></section><section class="padded full quiz"><div class="content"><div class="innerContent"><?php } ?>
+                             <?php if( $wp_query->current_post == 15){?></div></div></section><section class="padded full quiz"><div class="content"><div class="innerContent"><?php } ?>
                 
                              <?php if (in_category('quiz')) { ?>
                             
@@ -64,7 +64,7 @@
                                 <div class="text">
                                 <h3>Selbsttest</h3>
                                 <h2><?php the_title(); ?></h2>
-                                <button>Test starten</span>    
+                                <a class="moreBtn white" href="<?php the_permalink() ?>">Test starten</a> 
                                 </div> 
                                     
                                    
@@ -82,6 +82,20 @@
                                 <h2><?php the_title(); ?></h2>
                                 <span class="playBtn"></span>    
                                 </div>
+                                    
+                            <?php } else if (in_category('zahl')) { ?>
+                                    
+                              <article id="post-<?php the_ID(); ?>" <?php post_class();?>>
+                            
+								<header>
+                                    <div class="text big">
+                                    <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+									<p><?php the_content(); ?></p>
+                                    
+                                    </div>
+                                </header>
+                                    
+                                    
                             <?php } else {?>    
                                 
                                 <article id="post-<?php the_ID(); ?>" <?php post_class();?>>
@@ -96,9 +110,9 @@
                                     </div>
                                 </header>
                                     
-                            <?php if( $wp_query->current_post == 9){?></div></div><?php } ?>        
+                            <?php if( $wp_query->current_post == 10){?></div></div><?php } ?>        
 
-                            <?php if( $wp_query->current_post == 14 ){?></div></div></section><?php } ?> 
+                            <?php if( $wp_query->current_post == 15 ){?></div></div></section><?php } ?> 
                                 
                             <?php } ?>
 							</article>

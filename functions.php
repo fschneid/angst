@@ -73,7 +73,7 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'teaser', 500,350, true );
+add_image_size( 'teaser', 800,560, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -121,6 +121,20 @@ function bones_custom_image_sizes( $sizes ) {
 }
 
 remove_filter( 'the_excerpt', 'wpautop' );
+
+
+add_filter('body_class','add_category_to_single');
+function add_category_to_single($classes, $class) {
+  if (is_single() ) {
+    global $post;
+    foreach((get_the_category($post->ID)) as $category) {
+      // add category slug to the $classes array
+      $classes[] = $category->category_nicename;
+    }
+  }
+  // return the $classes array
+  return $classes;
+}
 
 /*
 The function above adds the ability to use the dropdown menu to select

@@ -1,9 +1,91 @@
+
 jQuery(document).ready(function($) { 
-    
+      
+
     
 if($("body").hasClass("home")){
-intro();   
+intro(); 
+    
+headerScroll();
+    
+var elem = document.querySelector('.slider');
+var flkty = new Flickity( elem, {
+  // options
+  cellAlign: 'left',
+freeScroll:true
+});    
+    
+} 
+    
+if($("body").hasClass("quiz")){
+    
+var form = $("form");    
+    
+var current = form.find(".question").eq(0).addClass("current");   
+    
+    
+//go Back results
+    
+$(".moreBtn").on("click",function(e){
+    
+e.preventDefault();
+window.history.go(-2);      
+})    
+    
+ 
+    
+    
+$(".answer input").on("focus",function(e){
+
+$(this).closest(".answer").siblings().removeClass("selected");    
+$(this).closest(".answer").toggleClass("selected");    
+
+})    
+        
+
+$(".next").on("click",function(){
+
+var next = current.next(".question");
+    
+if($(current).find('input:radio:checked').length > 0){ 
+
+var index = $(".question").index(next); 
+    
+if(!(next.length)){
+    
+$("input[type=submit].fixed").show();
+$("button.fixed").hide();    
+    
+}  else {
+
+    
+current.removeClass("current"); 
+    
+    
+$(".number span").html(index+1); 
+    
+var height = current.outerHeight();    
+    
+next.addClass("current");
+    
+current = next;  
+
+TweenMax.to(form, 0.6, {y:'-=' + height +'', ease: Power1.easeOut});     
+    
+} 
+    
+}  else {
+$(current).find(".warning").show();    
+}   
+  
+})    
+    
+    
 }    
+    
+    
+    
+
     
 var menuOpen = false; 
     
@@ -17,6 +99,9 @@ var id = $(this).attr("data-id");
 videoOverlay.open(id)    
     
 });
+    
+    
+
 
     
     
@@ -65,12 +150,7 @@ $(".facts h2").html(function(){
 
 
 
-var elem = document.querySelector('.slider');
-var flkty = new Flickity( elem, {
-  // options
-  cellAlign: 'left',
-freeScroll:true
-});
+
 
 
     
@@ -111,6 +191,25 @@ function overlay(){
         
     }
    
+}
+
+
+
+function headerScroll(){
+    
+var controller = new ScrollMagic.Controller();    
+    
+var el = jQuery(".scrollIndicator");
+var type = jQuery(".intro .innerContent");    
+    
+var arrow = new ScrollMagic.Scene({duration:50})
+								.setTween(el, {opacity: "0"})
+								.addTo(controller);
+    
+       
+    
+    
+    
 }
 
 

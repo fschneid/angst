@@ -15,9 +15,9 @@
               ?>
 
 
-              <?php $classes = get_body_class(); ?>
+            <?php $classes = get_body_class(); ?>
 
-            <?php if (in_array('single-wpt_test', $classes)) { ?>
+            <?php if (in_array('single-wpt_test', $classes) || in_category('quiz')) { ?>
 
              <?php the_content(); ?>
             

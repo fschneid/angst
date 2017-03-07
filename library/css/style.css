@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -1840,6 +1841,13 @@ http://flickity.metafizzy.co
   src: url("../fonts/Fabrik-Bold.eot?") format("eot"), url("../fonts/Fabrik-Bold.woff2") format("woff2"), url("../fonts/Fabrik-Bold.woff") format("woff");
 }
 
+@font-face {
+  font-family: "fabrik";
+  font-style: regular;
+  font-weight: 400;
+  src: url("../fonts/Fabrik-Regular.eot?") format("eot"), url("../fonts/Fabrik-Regular.woff2") format("woff2"), url("../fonts/Fabrik-Regular.woff") format("woff");
+}
+
 h1, h2, h3, h4, h5, p, ul {
   margin: 0;
   padding: 0;
@@ -1870,15 +1878,18 @@ a:hover {
 h1, h2, h3, h4, h5 {
   font-family: "fabrik", sans-serif;
   line-height: 1.1;
+  font-weight: 700;
 }
 
 h1.post-title {
   font-size: 5.5rem;
-  line-height: 0.8;
+  line-height: 1;
 }
 
 h2 {
   font-size: 2.5rem;
+  line-height: 1.3;
+  margin-bottom: 2rem;
 }
 
 h3 {
@@ -1887,6 +1898,11 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.4rem;
   margin-bottom: 2rem;
+}
+
+h4 {
+  font-size: 2rem;
+  line-height: 1.5;
 }
 
 p {
@@ -2206,6 +2222,14 @@ video.wp-video-shortcode,
   padding: 5px 15px;
 }
 
+.single-post .returnToHome {
+  display: block !important;
+}
+
+.single-post .menuBtn {
+  display: none;
+}
+
 .single-post nav.main .brand {
   display: block;
 }
@@ -2239,9 +2263,41 @@ nav.main.white {
   color: white;
 }
 
+nav.main .returnToHome {
+  width: 100%;
+  height: 1.5rem;
+  font-weight: 700;
+  background-image: url("../images/arrow-left-b.svg");
+  background-repeat: no-repeat;
+  background-size: auto 110%;
+  background-position: center;
+  position: relative;
+  display: none;
+}
+
+nav.main .returnToHome a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+nav.main .returnToHome::after {
+  content: 'Zurück';
+  display: block;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: -4rem;
+  text-align: center;
+  width: 100%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
 nav.main .menuBtn {
-  width: 32px;
-  height: 32px;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 nav.main .menuBtn .burger-icon {
@@ -2307,6 +2363,7 @@ nav.main .brandAuthor, nav.main .brand {
   display: none;
   position: relative;
   top: -5rem;
+  font-weight: 700;
 }
 
 nav.main .brandAuthor {
@@ -2380,6 +2437,7 @@ nav.main.white .share span {
   letter-spacing: 0.25rem;
   color: white;
   font-family: "fabrik", sans-serif;
+  font-weight: 700;
   margin-bottom: 4rem;
 }
 
@@ -2402,10 +2460,30 @@ section.quiz .innerContent {
   padding-top: 0;
 }
 
-section.quiz button {
+section.quiz h2 {
+  margin-bottom: 2rem;
+}
+
+section.quiz .moreBtn {
+  display: block !important;
+}
+
+body.wpt_test-template-default, body.quiz, body.wpt_test-get-results {
+  background-color: #000;
+  overflow: hidden;
+  color: white;
+}
+
+body.wpt_test-template-default #content, body.quiz #content, body.wpt_test-get-results #content {
+  height: 100%;
+  padding: 0;
+}
+
+body.wpt_test-template-default input[type="submit"], body.wpt_test-template-default button, body.quiz input[type="submit"], body.quiz button, body.wpt_test-get-results input[type="submit"], body.wpt_test-get-results button {
   background-color: white;
   padding: 1.5rem;
   font-family: "fabrik", sans-serif;
+  font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
   padding: 1rem;
@@ -2414,41 +2492,39 @@ section.quiz button {
   letter-spacing: 0.35rem;
 }
 
-section.quiz button.fixed {
+body.wpt_test-template-default input[type="submit"].fixed, body.wpt_test-template-default button.fixed, body.quiz input[type="submit"].fixed, body.quiz button.fixed, body.wpt_test-get-results input[type="submit"].fixed, body.wpt_test-get-results button.fixed {
   position: fixed;
   right: 4rem;
   bottom: 4rem;
   z-index: 99999;
+}
+
+body.wpt_test-template-default footer, body.quiz footer, body.wpt_test-get-results footer {
   display: none;
 }
 
-.quizFrame {
+body.wpt_test-template-default form, body.quiz form, body.wpt_test-get-results form {
   width: 100%;
-  height: 100%;
+}
+
+body.wpt_test-template-default input[type="submit"], body.quiz input[type="submit"], body.wpt_test-get-results input[type="submit"] {
+  display: none;
+}
+
+body.wpt_test-template-default .number, body.quiz .number, body.wpt_test-get-results .number {
+  border-bottom: 4px solid white;
+  padding-bottom: 1rem;
+  letter-spacing: 0.2rem;
   position: fixed;
-  left: 0;
-  top: 0;
-  display: none;
+  top: 4rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: white;
+  text-transform: uppercase;
 }
 
-.wpt_test-template-default {
-  background-color: #000;
-}
-
-.wpt_test-template-default footer {
-  display: none;
-}
-
-.wpt_test-template-default form {
-  height: 100vh;
-  width: 100%;
-}
-
-.wpt_test-template-default input[type="submit"] {
-  display: none;
-}
-
-.wpt_test-template-default .questionIntro {
+body.wpt_test-template-default .questionIntro, body.quiz .questionIntro, body.wpt_test-get-results .questionIntro {
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2468,11 +2544,11 @@ section.quiz button.fixed {
   color: white;
 }
 
-.wpt_test-template-default .question {
+body.wpt_test-template-default .question, body.quiz .question, body.wpt_test-get-results .question {
   padding-top: 6.25vw;
   padding-bottom: 6.25vw;
   color: white;
-  height: 100%;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2488,35 +2564,93 @@ section.quiz button.fixed {
           flex-direction: column;
 }
 
-.wpt_test-template-default .question:first-of-type .number {
+body.wpt_test-template-default .question:first-of-type .number, body.quiz .question:first-of-type .number, body.wpt_test-get-results .question:first-of-type .number {
   display: block;
 }
 
-.wpt_test-template-default .question .answers {
-  margin-top: 2rem;
-  display: block;
+body.wpt_test-template-default .question h2, body.quiz .question h2, body.wpt_test-get-results .question h2 {
+  text-align: center;
+  max-width: 50rem;
 }
 
-.wpt_test-template-default .question .answers > div {
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-.wpt_test-template-default .question .answers > div input {
-  margin-right: 0.5rem;
-}
-
-.wpt_test-template-default .question .number {
-  border-bottom: 4px solid white;
-  padding-bottom: 1rem;
-  letter-spacing: 0.2rem;
-  position: fixed;
-  top: 4rem;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  display: none;
+body.wpt_test-template-default .question .warning, body.quiz .question .warning, body.wpt_test-get-results .question .warning {
   text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  text-decoration: underline;
+  display: none;
+}
+
+body.wpt_test-template-default .question .answers, body.quiz .question .answers, body.wpt_test-get-results .question .answers {
+  margin-top: 3rem;
+  display: block;
+}
+
+body.wpt_test-template-default .question .answers > div, body.quiz .question .answers > div, body.wpt_test-get-results .question .answers > div {
+  display: inline-block;
+  margin-right: 2rem;
+  border: 2px solid white;
+}
+
+body.wpt_test-template-default .question .answers > div.selected, body.quiz .question .answers > div.selected, body.wpt_test-get-results .question .answers > div.selected {
+  background-color: white;
+}
+
+body.wpt_test-template-default .question .answers > div.selected label, body.quiz .question .answers > div.selected label, body.wpt_test-get-results .question .answers > div.selected label {
+  color: black;
+}
+
+body.wpt_test-template-default .question .answers > div label, body.quiz .question .answers > div label, body.wpt_test-get-results .question .answers > div label {
+  margin: 0;
+  text-align: center;
+  padding: 1rem 3rem;
+  font-size: 1rem;
+}
+
+body.wpt_test-template-default .question .answers > div input, body.quiz .question .answers > div input, body.wpt_test-get-results .question .answers > div input {
+  margin-right: 0.5rem;
+  opacity: 0;
+  position: absolute;
+}
+
+body.wpt_test-template-default .question .answers > div:nth-of-type(2), body.quiz .question .answers > div:nth-of-type(2), body.wpt_test-get-results .question .answers > div:nth-of-type(2) {
+  margin: 0;
+}
+
+body.wpt_test-get-results #content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+}
+
+body.wpt_test-get-results h3 {
+  margin-bottom: 1rem;
+}
+
+body.wpt_test-get-results .moreBtn {
+  margin-top: 2rem;
+}
+
+body.wpt_test-get-results .results {
+  max-width: 55rem;
+  text-align: center;
+}
+
+body, html {
+  height: 100%;
+  min-height: 100%;
 }
 
 body {
@@ -2655,6 +2789,7 @@ body.home nav {
           flex: 0 0 100%;
   max-width: 100%;
   position: relative;
+  font-weight: 700;
 }
 
 @media (min-width: 576px) {
@@ -2845,17 +2980,6 @@ section.full.quiz {
   padding-bottom: 0;
 }
 
-section.full .moreBtn {
-  box-shadow: inset 0 4px 0px 0 white;
-  color: white;
-}
-
-section.full .moreBtn:hover {
-  box-shadow: inset 0 3rem 0px 0 white;
-  color: black;
-  padding: 1rem;
-}
-
 section.protokolle {
   background-color: black;
   color: white;
@@ -2910,6 +3034,37 @@ section.facts .innerContent {
   padding-top: 0;
 }
 
+section.facts .text.big h2 {
+  margin-bottom: 1rem;
+}
+
+section.facts .text.big p {
+  line-height: 2.4;
+  text-align: justify;
+  font-family: "leitura-news", serif;
+  font-size: calc(1.375rem + 0.625 * ((100vw - 26.25rem) / 73.75));
+  -webkit-hyphens: none;
+      -ms-hyphens: none;
+          hyphens: none;
+}
+
+@media screen and (min-width: 1600px){
+  section.facts .text.big p{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 420px){
+  section.facts .text.big p{
+    font-size: 1.375rem;
+  }
+}
+
+section.facts .text.big p strong {
+  text-decoration: underline;
+  font-family: "fabrik", sans-serif;
+}
+
 section.facts .doubleCol {
   position: relative;
   width: 100%;
@@ -2959,6 +3114,17 @@ section.facts .doubleCol {
   }
 }
 
+section.facts .doubleCol .moreBtn {
+  box-shadow: inset 0 4px 0px 0 white;
+  color: white;
+}
+
+section.facts .doubleCol .moreBtn:hover {
+  box-shadow: inset 0 3rem 0px 0 white;
+  color: black;
+  padding: 1rem;
+}
+
 section.facts .doubleCol article {
   position: relative;
   width: 100%;
@@ -2999,6 +3165,10 @@ section.facts .doubleCol article {
   }
 }
 
+section.facts .doubleCol article img {
+  display: none;
+}
+
 section.facts .doubleCol article:first-of-type {
   position: relative;
 }
@@ -3016,6 +3186,12 @@ section.facts .doubleCol article:first-of-type::after {
 
 section.facts .doubleCol article:last-of-type {
   margin-bottom: 0;
+}
+
+section.facts .doubleCol h2 span {
+  font-size: 5rem;
+  display: block;
+  letter-spacing: 0.8rem;
 }
 
 section.facts header {
@@ -3057,12 +3233,7 @@ section.facts .text {
 section.facts h2 {
   font-size: 2rem;
   text-transform: uppercase;
-}
-
-section.facts h2 span {
-  font-size: 5rem;
-  display: block;
-  letter-spacing: 0.8rem;
+  letter-spacing: 0.1rem;
 }
 
 .innerContent {
@@ -3261,6 +3432,19 @@ body.home article header .text p {
   margin-top: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.moreBtn.white {
+  box-shadow: inset 0 4px 0px 0 white;
+  color: white;
+}
+
+.moreBtn.white:hover {
+  box-shadow: inset 0 3rem 0px 0 white;
+  color: black;
+  padding: 1rem;
 }
 
 .moreBtn:hover {
@@ -3400,6 +3584,7 @@ body.home article header .text p {
   z-index: 99;
   position: relative;
   color: white;
+  max-width: 72rem;
   margin-bottom: 2rem;
 }
 
@@ -3414,6 +3599,7 @@ body.home article header .text p {
   margin-bottom: 2rem;
   display: block;
   max-width: 42rem;
+  font-weight: 700;
 }
 
 .post-header .headerText .author {
@@ -3423,15 +3609,27 @@ body.home article header .text p {
   padding-top: 0.5rem;
   border-top: 4px solid white;
   letter-spacing: 0.15rem;
+  font-weight: 700;
 }
 
 .post-content {
   padding-top: 3.125vw;
   max-width: 72rem;
+  padding-bottom: 6.25vw;
 }
 
 .post-content p {
   max-width: 42rem;
+}
+
+.post-content p.right {
+  left: 10rem;
+  position: relative;
+}
+
+.post-content h4 {
+  margin: 4rem 0 2rem 0;
+  text-decoration: underline;
 }
 
 .post-content > p:first-of-type:first-letter {
@@ -3440,6 +3638,7 @@ body.home article header .text p {
   line-height: 0.75;
   padding-right: 1rem;
   float: left;
+  font-weight: 700;
 }
 
 .post-content p + p {
@@ -3550,12 +3749,21 @@ body.home article header .text p {
   padding: 0 3.125vw;
 }
 
+.category-protokoll .textContainer .excerpt, .category-protokoll .textContainer p {
+  max-width: none;
+}
+
+.category-protokoll .textContainer .post-content {
+  margin: 0 auto;
+}
+
 .category-protokoll .textContainer p:last-of-type {
   border-top: 4px solid #000;
   margin-top: 4rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-style: italic;
+  font-family: "fabrik", sans-serif;
+  font-weight: 400;
 }
 
 .category-protokoll .post-header {
@@ -3567,7 +3775,8 @@ body.home article header .text p {
   z-index: 99;
   position: relative;
   color: #000;
-  max-width: 45rem;
+  max-width: 72rem;
+  margin: 0 auto;
   margin-bottom: 6.25vw;
   text-align: center;
 }

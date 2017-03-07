@@ -55,7 +55,9 @@
             
 					<nav class="main" role="navigation">
                         
-                       <div class="menuBtn"><div class="burger-icon"></div></div>  
+                       <div class="menuBtn"><div class="burger-icon"></div></div>
+                        <div class="returnToHome"><a href="<?php echo get_home_url() ?>"></a></div>
+                    
                         
                         <span class="brand"><?php bloginfo('title'); ?></span>
                         

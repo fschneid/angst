@@ -18,7 +18,7 @@
 /* @var $hiddens array */
 ?>
 
-<div class="closeBtn"></div>    
+<span class="number">Frage <span>1</span>/6</span>
 
 <form
 <?php foreach ($formAttributes as $key => $value):?>
@@ -34,12 +34,12 @@
     <div class="question">
 
         
-            <span class="number">Frage <?php echo $q+1 ?>/6</span><h2><?php echo $question->getTitle() ?>
+            <h2><?php echo $question->getTitle() ?>
             <?php $wp->doAction('wp_testing_template_fill_form_label_end', array('required' => true)) ?></h2>
         <?php if (!$isMultipleAnswers): ?>
             <input type="hidden" name="<?php echo $answerIdName ?>[<?php echo $answerIndex ?>]" value="" />
         <?php endif ?>
-        
+     <span class="warning">Bitte beantworten Sie die Frage</span>   
     <div class="answers">    
     <?php foreach($question->buildAnswers() as $a => $answer): /* @var $answer WpTesting_Model_Answer */ ?>
         <?php $answerId = 'wpt-test-question-' . $question->getId() . '-answer-' . $answer->getId() ?>
@@ -68,10 +68,10 @@
 <?php $wp->doAction('wp_testing_template_fill_form_questions_after') ?>
 
 <?php if($isFinal): ?>
-    <p>
+    
         <input type="submit" class="button fixed" value="<?php echo $submitButtonCaption ?>" />
         <?php if($stepsCounter): ?><span class="steps-counter"><?php echo $stepsCounter ?></span><?php endif ?>
-    </p>
+    
 <?php else: ?>
     <div class="wpt_warning">
         <h4><?php echo __('Test is under construction', 'wp-testing') ?></h4>
@@ -81,6 +81,6 @@
 <?php foreach($hiddens as $name => $value): ?><input type="hidden" name="<?php echo htmlspecialchars($name) ?>" value="<?php echo htmlspecialchars($value) ?>" /><?php endforeach ?>
 </form>
     
-<button class="fixed">Nächste Frage</button>    
+<button class="fixed next">Nächste Frage</button>    
 
 

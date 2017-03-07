@@ -4,10 +4,35 @@ section.quiz{
     padding-top: 0;    
     }   
     
-     button{
+    h2{
+    margin-bottom: 2rem;    
+    }
+    
+    .moreBtn{
+    display: block !important;
+    }
+    
+    }
+    
+
+
+
+
+body.wpt_test-template-default,body.quiz,body.wpt_test-get-results{
+background-color: $black; 
+overflow: hidden;
+color: white;    
+    
+    #content{
+    height: 100%; 
+    padding: 0;
+    }
+    
+    input[type="submit"], button{
     background-color: white;
     padding: 1.5rem;
     font-family: $sans-serif;
+    font-weight: 700;
     font-size: 1rem;    
     text-transform: uppercase;
     padding: 1rem;
@@ -20,40 +45,37 @@ section.quiz{
         right: 4rem;
         bottom: 4rem;
         z-index: 99999;  
-        display: none;
+        
         }
         
     }
-}
-
-.quizFrame{
-    
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top:0;
-    display: none;
-   
-    
-}
-
-.wpt_test-template-default{
-  background-color: $black; 
     
     footer{
     display: none;
     }
     
     form{
-    height: 100vh;
-    width: 100%;    
+    width: 100%; 
     }
 
 
     input[type="submit"]{
     display: none;
     }
+    
+    .number{
+        
+        border-bottom: 4px solid white;
+        padding-bottom: 1rem; 
+        letter-spacing: 0.2rem;  
+        position: fixed;
+        top:4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        text-transform: uppercase;
+
+        }
     
    
     
@@ -69,10 +91,11 @@ section.quiz{
         } 
     
     .question{
+        
     padding-top: $mBig;
     padding-bottom: $mBig;
     color: white;
-    height: 100%;    
+    height: 100vh;    
     display: flex;
     justify-content: center;
     align-items:center;
@@ -86,41 +109,87 @@ section.quiz{
         
         
         h2{
-          
+        text-align: center;
+        max-width: 50rem;    
+        }
+        
+        .warning{
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-weight: 700;
+        margin-top: 1rem;
+        text-decoration: underline;
+        display: none;
         }
         
         .answers{
-        margin-top: 2rem;
+        margin-top: 3rem;
         display: block;
         
             > div{
             display: inline-block;
-            margin-right: 1rem;  
+            margin-right: 2rem; 
+            border:2px solid white;  
                 
-                input{
-                margin-right: 0.5rem;    
+                &.selected{
+                background-color: white;
+                    label{
+                    color:black;     
+                    }   
+                }
+            
+
+                label{
+                margin: 0;
+                text-align: center;
+                padding: 1rem 3rem;  
+                font-size: 1rem;    
                 }
                 
-            }    
+                input{
+                margin-right: 0.5rem; 
+                opacity: 0;
+                position: absolute;
+                }
+                
+            }
+            
+            > div:nth-of-type(2){
+                margin: 0;    
+                }
             
         }
         
-        .number{
-        
-        border-bottom: 4px solid white;
-        padding-bottom: 1rem; 
-        letter-spacing: 0.2rem;  
-        position: fixed;
-        top:4rem;
-        left: 50%;
-        transform: translateX(-50%);
-        display: none;
-        text-transform: uppercase;
             
-        }    
         
     }  
     
    
+    
+}
+
+ 
+body.wpt_test-get-results{
+    
+    #content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;    
+    }  
+    
+    h3{
+    margin-bottom: 1rem;    
+    }
+    
+    .moreBtn{
+    margin-top: 2rem;    
+    }
+    
+    .results{
+    max-width: 55rem;
+    text-align: center;
+    }
     
 }
