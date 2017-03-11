@@ -25,6 +25,14 @@
                     
                 </section> <?php // end article section ?>
                     
+                  <div class="shareBtns">
+                <a class="twitter" href="http://twitter.com/home/?status=<?php the_title(); ?> - <?php the_permalink(); ?>" target="_blank" title="Twitter"></a>
+                <a class="fb" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" target="_blank" title="Facebook"></a>
+                <a class="whatsapp" href="whatsapp://send?text=<?php the_permalink();?>" target="_blank" data-action="share/whatsapp/share"></a>      
+                    
                 </div>     
 
                 </article> <?php // end article ?>
+
+                 
+                </div>

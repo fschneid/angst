@@ -136,6 +136,39 @@ function add_category_to_single($classes, $class) {
   return $classes;
 }
 
+// Add Shortcode
+function tooltip_shortcode( $atts , $content = null ) {
+    
+   	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'content' => '',
+		),
+		$atts,
+		'tooltip'
+	);
+
+	return '<span class="toolTip"><span class="toolTip-item">' . $content . '</span><span class="toolTip-content">' . $atts['content'] . '</span></span>';
+
+}
+
+add_shortcode( 'tooltip', 'tooltip_shortcode' );
+
+
+
+// split content at the more tag and return an array
+function split_content() {
+
+         
+	$content = explode('<hr />', get_the_content());
+	for($c = 0, $csize = count($content); $c < $csize; $c++) {
+		$content[$c] = apply_filters('the_content', $content[$c]);
+	} 
+	return $content;
+
+}
+
+
 /*
 The function above adds the ability to use the dropdown menu to select
 the new images sizes you have just created from within the media manager

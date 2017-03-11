@@ -46,14 +46,14 @@
             
             <?php $classes = get_body_class(); ?>
 
-            <?php if (in_array('single-wpt_test', $classes)) { ?>
             
-            <?php } else { ?>
+            
+           
             
            
             
             
-					<nav class="main" role="navigation">
+					<nav class="main <?php if(in_array('quiz', $classes) || in_array('single-format-image', $classes)) {echo 'white';} ?> " role="navigation">
                         
                        <div class="menuBtn"><div class="burger-icon"></div></div>
                         <div class="returnToHome"><a href="<?php echo get_home_url() ?>"></a></div>
@@ -84,4 +84,4 @@
 						)); ?>
                         </div> 
 
-                <?php } ?>
+                

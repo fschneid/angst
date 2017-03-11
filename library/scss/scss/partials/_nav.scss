@@ -30,7 +30,9 @@ nav.main {
     z-index: 99999999;
     
     &.white{
-    color:white;    
+    color:white; 
+        
+        
     }
     
     .returnToHome{
@@ -119,13 +121,17 @@ nav.main {
                   &,&::before, &::after{
                    background-color: white;      
                   }  
-                  
+           
                
               }  
               
           .share span{
             background-position: right top;  
-          }      
+          }  
+              
+           .returnToHome{
+            background-image: url("../images/arrow-left-w.svg");    
+            }    
           
     }
 }
@@ -141,15 +147,22 @@ nav.main {
     top: 0;
     z-index: 99999;
     list-style: none;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
     transform: translateX(-100%);
     
+    @include media-breakpoint-down(lg){
+     width: 100%;   
+        
+    }
+    
+    
     #menu-main{
-      list-style: none;
+    list-style: none;
     padding: 0;
+    padding-left: $mBig/2;    
     margin: 0;    
     }
     

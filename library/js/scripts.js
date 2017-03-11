@@ -17,6 +17,15 @@ freeScroll:true
     
 } 
     
+if($("body").hasClass("single-format-image")){
+    
+svgAnimation();    
+    
+}   
+   
+    
+    
+    
 if($("body").hasClass("quiz")){
     
 var form = $("form");    
@@ -265,3 +274,47 @@ jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animat
         
 
 }
+
+function svgAnimation(){
+
+
+//load inline    
+var url = "http://localhost:8888/wp-content/uploads/2017/03/koerper.svg"   
+   
+xhr = new XMLHttpRequest();
+xhr.open("GET",url,false);
+xhr.overrideMimeType("image/svg+xml");
+xhr.send("");
+document.getElementById("svg").appendChild(xhr.responseXML.documentElement);  
+    
+    
+    
+
+        
+    
+    
+var igel = jQuery("#svg svg").find("#igelText > g"); 
+
+var text = jQuery(".text").find(".snippets");
+    
+igel.click(function(){
+
+igel.css("opacity","0.5");    
+    
+jQuery(this).css("opacity","1");
+    
+var id = jQuery(this).attr("id");
+    
+text.removeClass("active");   
+    
+jQuery(".snippets." + id + "").addClass("active");    
+ 
+    
+    
+}) 
+    
+    
+   
+}
+
+
