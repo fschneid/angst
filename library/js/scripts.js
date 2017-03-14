@@ -1,17 +1,25 @@
 
-jQuery(document).ready(function($) { 
-      
+var skipIntro = false;   
 
+jQuery(document).ready(function($) { 
     
+ 
+      
+  
 if($("body").hasClass("home")){
-intro(); 
     
+if(window.location.hash){        
+history.pushState("", document.title, window.location.pathname);
+skipIntro = true;       
+} 
+       
+intro();       
 headerScroll();
     
 var elem = document.querySelector('.slider');
 var flkty = new Flickity( elem, {
   // options
-  cellAlign: 'left',
+cellAlign: 'left',
 freeScroll:true
 });    
     
@@ -44,7 +52,7 @@ window.history.go(-2);
  
     
     
-$(".answer input").on("focus",function(e){
+$(".answer input").on("click",function(e){
 
 $(this).closest(".answer").siblings().removeClass("selected");    
 $(this).closest(".answer").toggleClass("selected");    
@@ -224,6 +232,8 @@ var arrow = new ScrollMagic.Scene({duration:50})
 
 function intro(){
 
+    
+if(skipIntro === false){    
          
 jQuery('.preloader').find("img").waitForImages(function() {
        
@@ -235,25 +245,19 @@ jQuery('.preloader').addClass("introAnimation");
     
     
 jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
-    function(e) {
-    
-    setStart();
-    }) 
- 
-
+function(e) {
+setStart();
+}) 
     
 });
-    
-    function imageReplace(num){
-    setTimeout(function(){  
-    var url = "wp-content/uploads/2017/02/intro"+ num +".jpg";  
-    jQuery(".preloader").css("backgroundImage", 'url(' + url + ')');  
-    if(num <= 10){imageReplace(num + 1)};
-    if(num == 10){setStart()};
-    }, 600);
+
+} else {
+setStart();    
 }
     
-    function setStart() {
+}
+
+   function setStart() {
         
     TweenMax.to(jQuery("nav"), 0.6, {
         x: "0"
@@ -271,15 +275,12 @@ jQuery('.preloader').one('webkitAnimationEnd oanimationend msAnimationEnd animat
         , delay:0.2
     });
 }
-        
-
-}
 
 function svgAnimation(){
 
 
 //load inline    
-var url = "http://localhost:8888/wp-content/uploads/2017/03/koerper.svg"   
+var url = "http://was-angst-macht.de/wp-content/uploads/2017/03/koerper.svg"   
    
 xhr = new XMLHttpRequest();
 xhr.open("GET",url,false);

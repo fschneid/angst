@@ -34,8 +34,7 @@
                     
                 <div class="headerText">  
 
-                <h1 class="post-title"><?php the_title(); ?></h1>
-                <span class="excerpt"><?php the_excerpt(); ?></span>    
+                <h1 class="post-title"><?php the_title(); ?></h1>   
                 <span class="author">von <?php the_cfc_field('autoren', 'autor'); ?></span>    
                
                     
@@ -49,7 +48,7 @@
                     
                     
                  
-
+                 <span class="excerpt"><?php the_excerpt(); ?></span>        
                  
                   <?php
                     the_content();

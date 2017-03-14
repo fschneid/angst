@@ -39,9 +39,11 @@
                             <?php if (in_category("protokoll")){?>
                                 
                             <div class="carousel-cell">
-                            <?php the_post_thumbnail( $size = 'teaser' ); ?>    
+                            <div class="imgContainer">  
+                            <?php the_post_thumbnail( $size = 'teaser' ); ?> 
+                            </div>      
                             <div class="text">  
-                            <h2><?php the_cfc_field('quote', 'zitat'); ?></h2>
+                                <h2><a href="<?php the_permalink() ?>"><?php the_cfc_field('quote', 'zitat'); ?></a></h2>
                             <a class="moreBtn white" href="<?php the_permalink() ?>">Zum Protokoll</a>   
                             </div>     
                             </div>
@@ -80,7 +82,7 @@
                                 <div class="text">
                                 <h3>Video</h3>
                                 <h2><?php the_title(); ?></h2>
-                                <span class="playBtn"></span>    
+                                 <a class="moreBtn white play" href="<?php the_permalink() ?>">Ansehen</a>       
                                 </div>
                                     
                             <?php } else if (in_category('zahl')) { ?>
@@ -111,11 +113,11 @@
                                 </header>
                                     
                             <?php if( $wp_query->current_post == 10){?></div></div><?php } ?>        
-
-                            <?php if( $wp_query->current_post == 15 ){?></div></div></section><?php } ?> 
                                 
                             <?php } ?>
 							</article>
+                                    
+                            <?php if( $wp_query->current_post == 15 ){?></div></div></section><?php } ?> 
                          
                             <?php } ?>
 

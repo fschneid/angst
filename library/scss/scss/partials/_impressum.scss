@@ -1,0 +1,46 @@
+.page-impressum{
+
+    
+    h2{
+    margin-top: 4rem;    
+    }
+    
+    .innerContent {   
+    padding-top: 0;    
+    }
+    
+    .article-header, section {
+    @include make-col-ready();
+    @include make-col(12); 
+    padding-bottom: 4rem;
+    }
+    
+   .article-header {
+  
+    color:white; 
+    height: 40vh; 
+    display: flex;
+    align-items: flex-end;
+       
+       h1{
+        z-index: 99;
+  
+       }   
+    
+    .headerImage{   
+    position: absolute 0 0 0 0;
+    z-index: 9;
+    left: -$mBig*0.5;
+    right: -$mBig*1.5;;  
+    background-color: $black;    
+    }  
+       
+    }
+    
+   
+    
+    p{
+    max-width: $maxP;
+    }
+    
+}

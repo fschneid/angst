@@ -11,8 +11,13 @@
 }
 
 $mBig: 6.25vw;
+$maxText : 72rem;  
+$maxP : 45rem;
+$maxWidth: 1600px;
+$maxWidthMQ: "(min-width: 1600px)";
 
-$maxWidth: "(min-width: 1600px)";
+
+
 //slider
 @import "partials/flickity.min";
 
@@ -29,6 +34,8 @@ $maxWidth: "(min-width: 1600px)";
 @import 'partials/_footer.scss';
 //
 @import 'partials/_quiz.scss';
+//
+@import 'partials/_impressum.scss';
 
 body,html{
 height: 100%;
@@ -45,6 +52,10 @@ body {
     }
 }
 
+
+#content{
+   
+}
 
 
 .intro {
@@ -176,15 +187,18 @@ body {
     }
 }
 
-section {
+
     .content {
         @include make-container();
-        max-width: 1600px;
+        max-width: $maxWidth;
         margin: 0 auto;
-        @media #{$maxWidth} {
+        @media #{$maxWidthMQ} {
             padding: 0;
         }
     }
+
+section {
+
     &.padded {
         padding: 0 $mBig/2;
         /* @media #{$maxWidth} {
@@ -210,6 +224,8 @@ section {
         padding-bottom: $mBig*2;
         padding-top: $mBig;
         overflow: visible;
+        
+
         .carousel-cell {
             width: 90%;
             display: flex;
@@ -223,8 +239,21 @@ section {
                 }
             }
         }
+        
+        .imgContainer{
+        max-width: 40vw;
+        flex-shrink: 0;    
+            
+            img{
+            width:100%;
+            height: auto;    
+            }    
+            
+        }
+        
         .text {
             padding-left: 1.5rem;
+             flex-shrink: 1; 
         }
         h2 {
             font-size: 2.5rem;
@@ -243,6 +272,7 @@ section {
         }
         
          .text.big{
+             padding: 0;
                
                 
                 h2{
@@ -320,7 +350,8 @@ section {
             font-size: 5rem;
             display: block;
             letter-spacing: 0.8rem;
-        }
+            }
+           
             
             p{
             display: none;
@@ -414,20 +445,29 @@ body.home {
                 margin-bottom: 1rem;
                 display: block;
             }
-            .playBtn {
+            .play {
+                padding-left: 1.5rem;
+                position: relative;
+                
+                &::before{
                 background-image: url("../images/play.svg");
                 background-repeat: no-repeat;
-                margin-top: 3rem;
-                width: 2.5rem;
-                height: 2.5rem;
+                background-size: 2rem;
+                background-position: left center;
+                content: '';
                 display: inline-block;
+                width: 1rem;
+                height: 1rem; 
+                position: absolute;
+                left: 0;
+                top:1rem;
+                }
+  
             }
             h2 {
                 letter-spacing: 0.3rem;
             }
-            .moreBtn {
-                display: none;
-            }
+           
         }
         img {
             width: 100%;
@@ -475,6 +515,16 @@ body.home {
     box-shadow: inset 0 3rem 0px 0 white;
     color: black;
     padding: 1rem
+    }
+    
+    &.play:hover {
+    
+    &::before{
+    background-position: right center !important;
+    left: 0.2rem !important;    
+    }    
+        
+    
     }
     
     &:hover {
@@ -557,7 +607,7 @@ opacity: 0;
     bottom: -$mBig*1.5;
 }
 
-.single{
+.single,.page-impressum{
     
     #content {
     padding-left: $mBig*2;
@@ -574,8 +624,6 @@ opacity: 0;
 }
 
 
- $maxText : 72rem;  
-    $maxP : 42rem;
 
     .post-header-image {
             position: absolute 0 0 0 0;
@@ -590,7 +638,7 @@ opacity: 0;
         content: '';
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);    
+        background-color: rgba(0, 0, 0, 0.3);    
         }  
         
         
@@ -612,20 +660,12 @@ opacity: 0;
             color: white;
             max-width: $maxText;
 
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             h1 {
                 margin-bottom: 2rem;
                 letter-spacing: 0.4rem;
             }
-            .excerpt {
-                font-family: $sans-serif;
-                font-size: 1.375rem;
-                margin-bottom: 2rem;
-                display: block;
-                max-width: $maxP;
-                font-weight: 700;
-                letter-spacing: 0.1rem;
-            }
+           
             .author {
                 display: inline-block;
                 text-transform: uppercase;
@@ -641,10 +681,19 @@ opacity: 0;
     
 
     .post-content {
-        padding-top: $mBig/2;
+        padding-top: 4rem;
         max-width: $maxText;
        
-       
+        .excerpt {
+                font-family: $sans-serif;
+                font-size: 1.4rem;
+                margin-bottom: 4rem;
+                display: block;
+                max-width: $maxP;
+                font-weight: 700;
+                line-height: 1.8;    
+                letter-spacing: 0.1rem;
+            }
         
         p{
         max-width: $maxP;      
@@ -818,9 +867,7 @@ opacity: 0;
             line-height: 1.2; 
             letter-spacing: 0.01rem;    
             }
-            .excerpt {
-                
-            }
+          
             .author {
             border-color:black;   
             }
@@ -1000,10 +1047,9 @@ color: white;
     }
     
     .snippets{
-    visibility: hidden; 
-    position: absolute;
+    display: none; 
     width: 32rem; 
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 1);
     color:$black;
     padding: 2rem; 
     transform: translateY(10%); 
@@ -1021,16 +1067,26 @@ color: white;
       
         
         &.active{
-        visibility: visible;
-        transform: translateY(0);
-        z-index: 99;    
-        opacity: 1; 
-        transition:  all 0.4s;    
-        }    
+        animation: slide 0.3s forwards;  
+        display: block;  
+        } 
         
-    }
-    
-    
-    
+        @keyframes slide {
+            0%{
+                opacity: 0;
+                z-index: 9;
+                transform: translateY(10%);
+            }
+            
+            100%{
+            opacity: 1;
+            z-index: 99;
+            transform: translateY(0);
+                
+            }
+        }
+        
+    }  
 }
+
 

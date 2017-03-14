@@ -56,7 +56,7 @@
 					<nav class="main <?php if(in_array('quiz', $classes) || in_array('single-format-image', $classes)) {echo 'white';} ?> " role="navigation">
                         
                        <div class="menuBtn"><div class="burger-icon"></div></div>
-                        <div class="returnToHome"><a href="<?php echo get_home_url() ?>"></a></div>
+                        <div class="returnToHome"><a href="<?php echo get_home_url() ?>#intern"></a></div>
                     
                         
                         <span class="brand"><?php bloginfo('title'); ?></span>

@@ -84,6 +84,15 @@ p {
     font-family: $serif;
     line-height: 1.6;
 
+    a{
+    text-decoration: underline;
+        
+     &:hover{
+    text-decoration: underline;
+        color: inherit;
+    }      
+        
+    }
 
 }
 
