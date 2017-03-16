@@ -110,6 +110,25 @@ function alx_embed_html( $html) {
 add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );
 add_filter( 'video_embed_html', 'alx_embed_html' ); // Jetpack
 
+
+function filter_wp_audio_shortcode( $html, $atts, $audio, $post_id, $library ) { 
+    
+    
+    $url = $atts['wav'];
+   
+    global $wpdb;
+    $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $url ));
+    
+    $title = get_the_title($attachment[0]);
+    
+    return '<span class="audioTitle">'. $title .'</span>'. $html . ''; 
+}; 
+         
+add_filter( 'wp_audio_shortcode', 'filter_wp_audio_shortcode', 10, 5 );
+
+
+
+
 add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
 
 function bones_custom_image_sizes( $sizes ) {

@@ -2,7 +2,7 @@
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
                     
-                <?php $url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full', false ); ?>    
+                <?php $url = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large', false ); ?>    
                  
                 <div class="textContainer">   
                     

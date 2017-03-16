@@ -78,8 +78,8 @@ body {
         border-style: solid;
         
        
-        -webkit-filter: contrast(120%) brightness(70%) saturate(100%) grayscale(80%);
-        filter: contrast(120%) brightness(70%) saturate(100%) grayscale(80%);
+        -webkit-filter: contrast(120%) brightness(70%) saturate(100%) grayscale(50%);
+        filter: contrast(120%) brightness(70%) saturate(100%) grayscale(50%);
         &.introAnimation {
             animation: intro 4s steps(1);
             animation-fill-mode: forwards;
@@ -156,34 +156,34 @@ body {
 
 @keyframes intro {
     25% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro1.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro1-800x560.jpg");
     }
     20% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro2.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro2-800x560.jpg");
     }
     30% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro3.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro3-800x560.jpg");
     }
     40% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro4.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro4-800x560.jpg");
     }
     50% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro5.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro5-800x560.jpg");
     }
     60% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro6.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro6-800x560.jpg");
     }
     70% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro7.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro7-800x560.jpg");
     }
     80% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro8.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro8-800x560.jpg");
     }
     90% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro9.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro9-800x560.jpg");
     }
     100% {
-        background-image: url("../../../../../wp-content/uploads/2017/02/intro10.jpg");
+        background-image: url("../../../../../wp-content/uploads/2017/03/intro10-800x560.jpg");
     }
 }
 
@@ -846,11 +846,27 @@ display: block;
             float: left;
             font-weight: 700;
         }
+        
+        
+        .mejs-container, .audioTitle{
+        max-width: $maxP;    
+        }
+        
+        .audioTitle{
+        color:white;
+        padding: 1rem;
+        background-color: $black;
+        width: 100%;
+        display: block;
+        font-size: 1.375rem;
+        margin-top: 2rem;    
+        }
        
         
         .mejs-audio {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
+            
+            margin-bottom: 2rem;
+            
         }
         
         .maxVideo{
