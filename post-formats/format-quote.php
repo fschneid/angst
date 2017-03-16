@@ -6,7 +6,7 @@
                  
                 <div class="textContainer">   
                     
-                <div class="post-header-image" style="background-image:url(<?php echo $url[0]; ?>)"></div>     
+                <div class="post-header-image" style="background-image:url(<?php echo $url[0]; ?>); background-position:<?php the_cfc_field('quote', 'hintergrundbildpos'); ?>% center"></div>     
 
                 <header class="post-header">
                     
@@ -16,7 +16,7 @@
                 <span class="excerpt"><?php the_excerpt(); ?></span>    
                 <span class="author">von <?php the_cfc_field('autoren', 'autor'); ?></span>    
                 </div>     
-                    
+                   
                 </header>
                   
                 <section class="post-content"> 

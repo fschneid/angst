@@ -104,7 +104,7 @@ function alx_embed_html( $html) {
 
     $vId = get_post_meta($postid, 'videoID', true);
  
-    return '<div class="video-container"><div class="poster" style="background-image:url(https://img.youtube.com/vi/' . $vId . '/0.jpg)"></div>' . $html . '</div>';
+    return '<div class="maxVideo"><div class="video-container"><div class="poster" style="background-image:url(https://img.youtube.com/vi/' . $vId . '/0.jpg)"></div>' . $html . '</div></div>';
 }
  
 add_filter( 'embed_oembed_html', 'alx_embed_html', 10, 3 );

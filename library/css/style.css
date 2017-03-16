@@ -1890,10 +1890,23 @@ h1.post-title {
   line-height: 1;
 }
 
+@media (max-width: 767px) {
+  h1.post-title {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
 h2 {
   font-size: 2.5rem;
   line-height: 1.3;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 2rem;
+  }
 }
 
 h3 {
@@ -1902,6 +1915,13 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.4rem;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 767px) {
+  h3 {
+    font-size: 1.125rem;
+    letter-spacing: 0.2rem;
+  }
 }
 
 h4 {
@@ -1913,6 +1933,12 @@ p {
   font-size: 1.375rem;
   font-family: "leitura-news", serif;
   line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  p {
+    font-size: 1.125rem;
+  }
 }
 
 p a {
@@ -2276,6 +2302,15 @@ nav.main {
   z-index: 99999999;
 }
 
+@media (max-width: 767px) {
+  nav.main {
+    width: 3rem;
+    padding: 1rem 0 0 0;
+    position: absolute;
+    height: 80vh;
+  }
+}
+
 nav.main.white {
   color: white;
 }
@@ -2459,6 +2494,12 @@ nav.main.white .returnToHome {
   margin: 0;
 }
 
+@media (max-width: 767px) {
+  .menuLayer #menu-main {
+    padding-left: 1rem;
+  }
+}
+
 .menuLayer li {
   color: white;
   font-size: 4rem;
@@ -2471,6 +2512,12 @@ nav.main.white .returnToHome {
 
 .menuLayer li.current-menu-item {
   text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .menuLayer li {
+    font-size: 2rem;
+  }
 }
 
 .single-post footer {
@@ -2492,6 +2539,18 @@ footer {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  footer {
+    display: block;
+    padding: 1rem;
+  }
+  footer span {
+    display: block;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 }
 
 section.quiz .innerContent {
@@ -3081,11 +3140,23 @@ body.home nav {
   }
 }
 
+@media (max-width: 767px) {
+  .content {
+    padding: 0 1rem;
+  }
+}
+
 section.padded {
   padding: 0 3.125vw;
   /* @media 1600px {
          padding: 0;   
         } */
+}
+
+@media (max-width: 767px) {
+  section.padded {
+    padding: 0;
+  }
 }
 
 section.full {
@@ -3122,6 +3193,12 @@ section.protokolle .carousel-cell {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  section.protokolle .carousel-cell {
+    display: block;
+  }
+}
+
 section.protokolle .carousel-cell.is-selected {
   opacity: 1;
 }
@@ -3136,6 +3213,13 @@ section.protokolle .imgContainer {
       flex-shrink: 0;
 }
 
+@media (max-width: 767px) {
+  section.protokolle .imgContainer {
+    max-width: none;
+    width: 100%;
+  }
+}
+
 section.protokolle .imgContainer img {
   width: 100%;
   height: auto;
@@ -3148,13 +3232,21 @@ section.protokolle .text {
 }
 
 section.protokolle h2 {
-  font-size: 2.5rem;
   white-space: nowrap;
   margin-bottom: 1.5rem;
   margin-left: -3rem;
   letter-spacing: 1rem;
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
+}
+
+@media (max-width: 767px) {
+  section.protokolle h2 {
+    font-size: 2rem;
+    letter-spacing: 0.4rem;
+    margin-left: 0;
+    white-space: normal;
+  }
 }
 
 section.facts {
@@ -3361,6 +3453,12 @@ section.facts article {
   padding-bottom: 6.25vw;
 }
 
+@media (max-width: 767px) {
+  section.facts article {
+    padding-bottom: 2rem;
+  }
+}
+
 section.facts article:last-of-type {
   margin-bottom: 0;
 }
@@ -3554,9 +3652,21 @@ body.home article header {
   padding-left: 2rem;
 }
 
+@media (max-width: 767px) {
+  body.home article header {
+    padding-left: 1rem;
+  }
+}
+
 body.home article header .text {
   background-color: white;
   padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
+@media (max-width: 767px) {
+  body.home article header .text {
+    padding: 1rem 1rem 0 1rem;
+  }
 }
 
 body.home article header .text h2 {
@@ -3694,13 +3804,48 @@ body.home article header .text p {
   padding-right: 12.5vw;
 }
 
-.single.single-format-quote, .page-impressum.single-format-quote {
-  overflow: hidden;
+@media (max-width: 767px) {
+  .single #content, .page-impressum #content {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
-.single.single-format-quote #content, .page-impressum.single-format-quote #content {
-  padding-left: 50%;
-  padding-right: 0;
+@media (min-width: 576px) {
+  .single.single-format-quote, .page-impressum.single-format-quote {
+    overflow: hidden;
+  }
+  .single.single-format-quote #content, .page-impressum.single-format-quote #content {
+    padding-left: 50%;
+    padding-right: 0;
+  }
+}
+
+.credit {
+  font-size: 1rem;
+  color: grey;
+  font-style: italic;
+  font-family: "leitura-news", serif;
+  margin-top: 2rem;
+  display: block;
+}
+
+.excerpt {
+  font-family: "fabrik", sans-serif;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  display: block;
+  max-width: 45rem;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.1rem;
+}
+
+@media (max-width: 767px) {
+  .excerpt {
+    font-size: 1.125rem;
+    text-align: center;
+  }
 }
 
 .post-header-image {
@@ -3716,12 +3861,26 @@ body.home article header .text p {
   background-size: cover;
 }
 
+@media (max-width: 767px) {
+  .post-header-image {
+    left: 2rem;
+    right: -1rem;
+    height: 80vh;
+  }
+}
+
 .post-header-image::after {
   display: block;
   content: '';
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 767px) {
+  .post-header-image::after {
+    display: none;
+  }
 }
 
 .post-header {
@@ -3743,6 +3902,14 @@ body.home article header .text p {
           align-items: flex-end;
 }
 
+@media (max-width: 767px) {
+  .post-header {
+    display: block;
+    height: auto;
+    padding-top: 80vh;
+  }
+}
+
 .post-header .headerText {
   z-index: 99;
   position: relative;
@@ -3751,9 +3918,25 @@ body.home article header .text p {
   margin-bottom: 4rem;
 }
 
+@media (max-width: 767px) {
+  .post-header .headerText {
+    color: #000;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+}
+
 .post-header .headerText h1 {
   margin-bottom: 2rem;
   letter-spacing: 0.4rem;
+}
+
+@media (max-width: 767px) {
+  .post-header .headerText h1 {
+    letter-spacing: 0.1rem;
+    line-height: 1.2;
+  }
 }
 
 .post-header .headerText .author {
@@ -3766,20 +3949,21 @@ body.home article header .text p {
   font-weight: 700;
 }
 
+@media (max-width: 767px) {
+  .post-header .headerText .author {
+    border-top: 4px solid black;
+  }
+}
+
 .post-content {
   padding-top: 4rem;
   max-width: 72rem;
 }
 
-.post-content .excerpt {
-  font-family: "fabrik", sans-serif;
-  font-size: 1.4rem;
-  margin-bottom: 4rem;
-  display: block;
-  max-width: 45rem;
-  font-weight: 700;
-  line-height: 1.8;
-  letter-spacing: 0.1rem;
+@media (max-width: 767px) {
+  .post-content {
+    padding-top: 0;
+  }
 }
 
 .post-content p {
@@ -3851,7 +4035,7 @@ body.home article header .text p {
   display: inline-block;
   width: 5rem;
   height: 5rem;
-  background-image: url("../images/play.svg");
+  background-image: url("../images/play_single.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -3871,13 +4055,21 @@ body.home article header .text p {
   max-width: 45rem;
 }
 
+.post-content .wp-caption {
+  padding: 4rem 0;
+}
+
 .post-content img {
   width: 100%;
   height: auto;
 }
 
-.post-content .alignleft {
-  margin-left: -8rem;
+.post-content .aligncenter {
+  max-width: 100%;
+}
+
+.post-content .aligncenter p, .post-content .aligncenter img {
+  max-width: inherit;
 }
 
 .post-content .alignright {
@@ -3905,6 +4097,14 @@ body.home article header .text p {
   background-position: right;
 }
 
+@media (max-width: 767px) {
+  .category-protokoll .post-header-image {
+    left: 3rem;
+    right: 0;
+    height: 80vh;
+  }
+}
+
 .category-protokoll .post-header-image::after {
   display: none;
 }
@@ -3915,8 +4115,19 @@ body.home article header .text p {
   padding: 0 3.125vw;
 }
 
+@media (max-width: 767px) {
+  .category-protokoll .textContainer {
+    height: auto;
+    padding: 0;
+  }
+}
+
 .category-protokoll .textContainer .excerpt, .category-protokoll .textContainer p {
   max-width: none;
+}
+
+.category-protokoll .textContainer .excerpt {
+  margin-bottom: 2rem;
 }
 
 .category-protokoll .textContainer .post-content {
@@ -3937,6 +4148,12 @@ body.home article header .text p {
   padding-top: 6.25vw;
 }
 
+@media (max-width: 767px) {
+  .category-protokoll .post-header {
+    padding-top: 80vh;
+  }
+}
+
 .category-protokoll .post-header .headerText {
   z-index: 99;
   position: relative;
@@ -3947,10 +4164,19 @@ body.home article header .text p {
   text-align: center;
 }
 
-.category-protokoll .post-header .headerText h1 {
-  font-size: 4rem;
-  line-height: 1.2;
-  letter-spacing: 0.01rem;
+@media (max-width: 767px) {
+  .category-protokoll .post-header .headerText {
+    margin-bottom: 2rem;
+    margin-top: 4rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .category-protokoll .post-header .headerText h1 {
+    font-size: 4rem;
+    line-height: 1.2;
+    letter-spacing: 0.01rem;
+  }
 }
 
 .category-protokoll .post-header .headerText .author {
@@ -4003,8 +4229,13 @@ body.home article header .text p {
 }
 
 .shareBtns {
-  padding-bottom: 4rem;
-  padding-top: 4rem;
+  padding: 4rem 0;
+}
+
+@media (max-width: 767px) {
+  .shareBtns {
+    padding: 2rem 0;
+  }
 }
 
 .shareBtns a {
@@ -4176,4 +4407,8 @@ body.single-format-image .snippets.active {
     -webkit-transform: translateY(0);
             transform: translateY(0);
   }
+}
+
+#sb_instagram {
+  margin: 4rem 0;
 }

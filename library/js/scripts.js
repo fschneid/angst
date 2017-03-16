@@ -20,10 +20,26 @@ var elem = document.querySelector('.slider');
 var flkty = new Flickity( elem, {
   // options
 cellAlign: 'left',
-freeScroll:true
+freeScroll:true,
+imagesLoaded: true    
 });    
     
 } 
+ 
+    
+    
+$(".returnToHome").on("click",function(e){
+  
+if(document.referrer.indexOf('was-angst-macht.de') >= 0) {
+    
+    e.preventDefault();
+    history.go(-1);  }  
+   
+})    
+    
+
+    
+    
     
 if($("body").hasClass("single-format-image")){
     
@@ -32,6 +48,7 @@ svgAnimation();
 }   
    
     
+
     
     
 if($("body").hasClass("quiz")){

@@ -35,6 +35,13 @@ nav.main {
     overflow: hidden;
     z-index: 99999999;
     
+    @include media-breakpoint-down(sm){
+    width: 3rem;
+    padding: 1rem 0 0 0; 
+    position: absolute;
+    height: 80vh;    
+    }
+    
     &.white{
     color:white; 
         
@@ -169,7 +176,12 @@ nav.main {
     list-style: none;
     padding: 0;
     padding-left: $mBig/2;    
-    margin: 0;    
+    margin: 0; 
+        
+    @include media-breakpoint-down(sm){
+        padding-left: 1rem;   
+        }
+        
     }
     
     
@@ -179,11 +191,17 @@ nav.main {
         letter-spacing: 0.25rem;
         color: white;
         font-family: $sans-serif;
-         font-weight: 700;
+        font-weight: 700;
         margin-bottom: 4rem;
+        
         &.current-menu-item {
             text-decoration: underline;
         }
+        
+        @include media-breakpoint-down(sm){
+        font-size: 2rem;    
+        }
+        
     }
 }
 
