@@ -3,16 +3,16 @@
 			<div id="content">
                 
             <section class="intro">
-            <div class="preloader" style="background-image:url(wp-content/uploads/2017/02/intro1.jpg)">
-            <img class="hidden" src="wp-content/uploads/2017/02/intro2.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro3.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro4.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro5.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro6.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro7.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro8.jpg" /> 
-            <img class="hidden" src="wp-content/uploads/2017/02/intro9.jpg" />     
-            <img class="hidden" src="wp-content/uploads/2017/02/intro10.jpg" />     
+            <div class="preloader" style="background-image:url(wp-content/uploads/2017/03/intro1-800x560.jpg)">
+            <img class="hidden" src="wp-content/uploads/2017/03/intro2-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro3-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro4-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro5-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro6-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro7-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro8-800x560.jpg" /> 
+            <img class="hidden" src="wp-content/uploads/2017/03/intro9-800x560.jpg" />     
+            <img class="hidden" src="wp-content/uploads/2017/03/intro10-800x560.jpg" />     
             </div>    
             <div class="content"> 
             <div class="innerContent">    
@@ -31,7 +31,9 @@
                     
                             <section class="protokolle full padded">
                                
-                           <div class="slider"> 
+                           <div class="slider">
+                               
+                          
                             
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                             
@@ -82,7 +84,7 @@
                                 <div class="text">
                                 <h3>Video</h3>
                                 <h2><?php the_title(); ?></h2>
-                                 <a class="moreBtn white play" href="<?php the_permalink() ?>">Ansehen</a>       
+                                 <a class="moreBtn white play" href="">Ansehen</a>       
                                 </div>
                                     
                             <?php } else if (in_category('zahl')) { ?>

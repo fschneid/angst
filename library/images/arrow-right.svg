@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="84px" height="31px" viewBox="0 0 84 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="85px" height="32px" viewBox="0 0 85 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
     <title>Group</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-4" fill="#FFFFFF">
-            <g id="Group" transform="translate(42.500000, 16.000000) scale(-1, 1) translate(-42.500000, -16.000000) ">
-                <path d="M8.66904756,13 L84.1126984,13 L84.1126984,18 L8.55634919,18 L18.6690476,28.1126984 L15.6690476,31.1126984 L0.112698372,15.5563492 L15.6690476,0 L18.6690476,3 L8.66904756,13 Z" id="Combined-Shape"></path>
+        <g id="Desktop-HD-Copy-12" transform="translate(-1277.000000, -1178.000000)" fill="#FFFFFF">
+            <g id="Group" transform="translate(1277.000000, 1178.000000)">
+                <rect id="Rectangle-12" x="0" y="13" width="80" height="5"></rect>
+                <path d="M65.5563492,28.1126984 L68.5563492,31.1126984 L84.1126984,15.5563492 L68.5563492,-7.30082661e-13 L65.5563492,3 L78.1126984,15.5563492 L65.5563492,28.1126984 Z" id="Combined-Shape"></path>
             </g>
         </g>
     </g>

@@ -1,5 +1,5 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <div id="svg"></div>
+    
     <div class="text">
         <div class="introduction snippets active">
             <h3>Infografik</h3>
@@ -12,6 +12,7 @@
         
         <?php for ($i = 0; $i < count($content); $i++) { ?>
         <div class="snippets <?php echo $ids[$i]; ?>">
+        <div class="closeBtn"></div>    
         <?php echo $content[$i] ?>
         </div>    
         <?php } ?>
@@ -37,5 +38,6 @@
         
         
     </div>
+    <div id="svg"></div>
 </article>
 <?php // end article ?>

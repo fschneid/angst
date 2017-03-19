@@ -34,17 +34,31 @@ nav.main {
     align-items: center;
     overflow: hidden;
     z-index: 99999999;
+    transition: all 0.2s;
     
     @include media-breakpoint-down(sm){
-    width: 3rem;
-    padding: 1rem 0 0 0; 
-    position: absolute;
-    height: 80vh;    
+    width: 100%;
+    height: 4rem;
+    background-color: white; 
+    border-bottom: 2px solid $black;    
+    flex-direction: row;
+    justify-content: center;    
+    padding: 0 1rem;
+    }
+    
+    &.scroll{
+    transform: translateX(0%); 
+        @include media-breakpoint-down(sm){
+        transform: translateY(0%);     
+        }    
     }
     
     &.white{
     color:white; 
-        
+     
+        @include media-breakpoint-down(sm){
+       background-color: transparent;
+        }    
         
     }
     
@@ -58,6 +72,14 @@ nav.main {
     background-position: center;
     position: relative;
     display: none;
+    
+        @include media-breakpoint-down(sm){
+        width: 1.5rem; 
+        position: absolute;
+        left: 1rem;   
+        top:1.25rem;      
+        }    
+        
         
         a{
         position: absolute 0 0 0 0;
@@ -73,14 +95,27 @@ nav.main {
         text-align: center;
         width: 100%; 
         transform: rotate(-90deg);
+        
+            @include media-breakpoint-down(sm){
+            display: none;
+            }    
+            
         }    
         
     }
     
    
     .menuBtn {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        
+         @include media-breakpoint-down(sm){
+        position: absolute;
+        left: 1rem;
+        top:1.25rem;     
+        } 
+        
+        
         .burger-icon {
            
             @include burger(32px, 3px, 5px, black, 2px);
@@ -96,13 +131,24 @@ nav.main {
         transform: rotate(-90deg);
         white-space: nowrap;
         font-family: $sans-serif; 
-        
+        display: block;
         letter-spacing: 0.1rem;
         text-transform: uppercase;
-        display: none;
+       
+        
         position: relative;
         top:-5rem;
         font-weight: 700;
+        
+        @include media-breakpoint-down(sm){
+            transform: none;
+            top:0;
+            display: block;
+            }  
+        
+        .navTitel {} 
+        
+        
     }
     
     .brandAuthor{
@@ -151,9 +197,9 @@ nav.main {
 
 .menuLayer {
     list-style: none;
-    width: 50%;
+    width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: $black;
     position: fixed;
     left: 0;
     margin: 0;
@@ -166,21 +212,15 @@ nav.main {
     justify-content: center;
     transform: translateX(-100%);
     
-    @include media-breakpoint-down(lg){
-     width: 100%;   
-        
-    }
+    
     
     
     #menu-main{
     list-style: none;
-    padding: 0;
-    padding-left: $mBig/2;    
+    padding: 0;    
     margin: 0; 
         
-    @include media-breakpoint-down(sm){
-        padding-left: 1rem;   
-        }
+
         
     }
     
@@ -193,6 +233,7 @@ nav.main {
         font-family: $sans-serif;
         font-weight: 700;
         margin-bottom: 4rem;
+        text-align: center;
         
         &.current-menu-item {
             text-decoration: underline;

@@ -13,6 +13,12 @@
     @include make-col-ready();
     @include make-col(12); 
     padding-bottom: 4rem;
+        
+        @include media-breakpoint-down(sm) {
+        padding-left: 1rem;
+        padding-right: 1rem;    
+        }    
+        
     }
     
    .article-header {
@@ -31,8 +37,15 @@
     position: absolute 0 0 0 0;
     z-index: 9;
     left: -$mBig*0.5;
-    right: -$mBig*1.5;;  
-    background-color: $black;    
+    right: -$mBig*1.5;  
+    background-color: $black;
+        
+        @include media-breakpoint-down(sm) {
+         left: -1rem;
+        right: -1rem; 
+        top:4rem;    
+        }    
+        
     }  
        
     }
