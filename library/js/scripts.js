@@ -1,13 +1,11 @@
 var skipIntro = false;
 jQuery(document).ready(function ($) {
-    
     if ($("body").hasClass("home")) {
         if (window.location.hash) {
             history.pushState("", document.title, window.location.pathname);
             skipIntro = true;
         }
         intro();
-        
         headerScroll();
         var elem = document.querySelector('.slider');
         var flkty = new Flickity(elem, {
@@ -15,64 +13,47 @@ jQuery(document).ready(function ($) {
             cellAlign: 'left'
             , imagesLoaded: true
         });
-        
-          var scrolling = false,
-            previousTop = 0,
-            currentTop = 0,
-            scrollDelta = 10,
-            scrollOffset = 150;
-        
-    $(window).on('scroll', function(){
-	if( !scrolling ) {
-		scrolling = true;
-		(!window.requestAnimationFrame)
-			? setTimeout(autoHideHeader, 250)
-			: requestAnimationFrame(autoHideHeader);
-	}
-    });
-        
-    function autoHideHeader(){
-    
-        var currentTop = $(window).scrollTop();
-		var nav = $("nav");
-		var splash = $(".intro").height();
-	
-		if (previousTop - currentTop > scrollDelta) {
-			//if scrolling up...
+        var scrolling = false
+            , previousTop = 0
+            , currentTop = 0
+            , scrollDelta = 10
+            , scrollOffset = 150;
+        $(window).on('scroll', function () {
+            if (!scrolling) {
+                scrolling = true;
+                (!window.requestAnimationFrame) ? setTimeout(autoHideHeader, 250): requestAnimationFrame(autoHideHeader);
+            }
+        });
 
-			if (currentTop <= splash) {
-				nav.removeClass("scroll");
-			}
-
-		} else if (currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
-			//if scrolling down...
-			
-			if (currentTop >= splash*0.7 && !(nav.hasClass("scroll"))){
-			nav.addClass("scroll");	
-			
-			}
-		}
-
-		previousTop = currentTop;
-		scrolling = false; 
-}    
-        
+        function autoHideHeader() {
+            var currentTop = $(window).scrollTop();
+            var nav = $("nav");
+            var splash = $(".intro").height();
+            if (previousTop - currentTop > scrollDelta) {
+                //if scrolling up...
+                if (currentTop <= splash) {
+                    nav.removeClass("scroll");
+                }
+            }
+            else if (currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
+                //if scrolling down...
+                if (currentTop >= splash * 0.7 && !(nav.hasClass("scroll"))) {
+                    nav.addClass("scroll");
+                }
+            }
+            previousTop = currentTop;
+            scrolling = false;
+        }
     }
-    
-    
     $(".returnToHome").on("click", function (e) {
         if (document.referrer.indexOf('was-angst-macht.de') >= 0) {
             e.preventDefault();
             history.go(-1);
         }
     })
-    
-    
     if ($("body").hasClass("single-format-image")) {
         svgAnimation();
     }
-    
-    
     if ($("body").hasClass("quiz")) {
         var form = $("form");
         var current = form.find(".question").eq(0).addClass("current");
@@ -184,12 +165,7 @@ function overlay() {
     }
 }
 
-
-
-
-
 function headerScroll() {
-   
     var controller = new ScrollMagic.Controller();
     var el = jQuery(".scrollIndicator");
     var type = jQuery(".intro .innerContent");
@@ -216,14 +192,11 @@ function intro() {
 }
 
 function setStart() {
-   /* TweenMax.to(jQuery("nav"), 0.6, {
-        x: "0"
-        , ease: Circ.easeOut
-        , delay: 0.2
-    });*/
-    
-    
-    
+    /* TweenMax.to(jQuery("nav"), 0.6, {
+         x: "0"
+         , ease: Circ.easeOut
+         , delay: 0.2
+     });*/
     jQuery(".scrollIndicator").addClass("animateIn");
     /*TweenMax.to(jQuery(".preloader"), 0.6, {
         borderBottomWidth: "6.25vw"
@@ -250,4 +223,53 @@ function svgAnimation() {
         text.removeClass("active");
         jQuery(".snippets." + id + "").addClass("active");
     })
+    var svgController = new ScrollMagic.Controller();
+    
+    var svgTL1 = new TimelineMax(),
+    svgTL2 = new TimelineMax(),
+    svgTL3 = new TimelineMax(),      
+    snake = jQuery("#svg svg").find("#snake"),
+    fear = jQuery("#svg svg").find("#fear"),
+    smile = jQuery("#svg svg").find("#smile"),
+    brain = jQuery("#svg svg").find("#brain"),
+    niere = jQuery("#svg svg").find("#nniere"),
+    connect = jQuery("#svg svg").find("#connect"),    
+    igelAll = jQuery("#svg svg").find("#igelText"),
+    indicator = jQuery(".scrollIndicator");    
+    
+    
+    //snake
+     svgTL1.to(indicator, 0.2, {opacity:0},0);
+    svgTL1.from(snake, 1, {x:500},0);
+    svgTL1.to(snake, 1, {opacity:1},0);
+    svgTL1.to(fear, 0, {opacity:1},1);
+    svgTL1.to(smile, 0, {opacity:0},1);
+    svgTL1.to(brain, 1, {opacity:1},2);
+    
+    
+    svgTL2.to(connect, 1, {strokeDashoffset:0},0);
+    svgTL2.to(niere, 1, {opacity:1},0);
+    
+    svgTL3.to(brain, 1, {opacity:0},0);
+    svgTL3.to(connect, 1, {opacity:0},0);
+    svgTL3.to(niere, 1, {opacity:0},0);
+    svgTL3.to(igelAll, 1, {opacity:1},1);
+    
+    var scene1 = new ScrollMagic.Scene({
+    duration: '150%'
+    })
+    .setTween(svgTL1)
+    .addTo(svgController);
+    
+   var scene2 = new ScrollMagic.Scene({
+    duration: '100%',triggerElement: ".trigger2", triggerHook: 'onEnter'
+    })
+    .setTween(svgTL2)
+    .addTo(svgController);
+    
+    var scene2 = new ScrollMagic.Scene({
+    duration: '100%',triggerElement: ".empty", triggerHook: 'onEnter'
+    })
+    .setTween(svgTL3)
+    .addTo(svgController);
 }

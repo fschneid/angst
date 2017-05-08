@@ -23,6 +23,8 @@
 
                 <?php the_content();?>
                     
+                <span class="credit">Bilder: <?php the_cfc_field('credit', 'foto-credit'); ?></span>       
+                    
                 </section> <?php // end article section ?>
                     
                   <div class="shareBtns">

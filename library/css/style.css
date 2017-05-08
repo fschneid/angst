@@ -2825,15 +2825,15 @@ body.wpt_test-get-results .results {
   text-align: center;
 }
 
-.page-impressum h2 {
+.page-ueber-das-projekt h2, .page-impressum h2 {
   margin-top: 4rem;
 }
 
-.page-impressum .innerContent {
+.page-ueber-das-projekt .innerContent, .page-impressum .innerContent {
   padding-top: 0;
 }
 
-.page-impressum .article-header, .page-impressum section {
+.page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -2847,41 +2847,41 @@ body.wpt_test-get-results .results {
 }
 
 @media (min-width: 576px) {
-  .page-impressum .article-header, .page-impressum section {
+  .page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
     padding-right: 3.125vw;
     padding-left: 3.125vw;
   }
 }
 
 @media (min-width: 768px) {
-  .page-impressum .article-header, .page-impressum section {
+  .page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
     padding-right: 3.125vw;
     padding-left: 3.125vw;
   }
 }
 
 @media (min-width: 992px) {
-  .page-impressum .article-header, .page-impressum section {
+  .page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
     padding-right: 3.125vw;
     padding-left: 3.125vw;
   }
 }
 
 @media (min-width: 1200px) {
-  .page-impressum .article-header, .page-impressum section {
+  .page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
     padding-right: 3.125vw;
     padding-left: 3.125vw;
   }
 }
 
 @media (max-width: 767px) {
-  .page-impressum .article-header, .page-impressum section {
+  .page-ueber-das-projekt .article-header, .page-ueber-das-projekt section, .page-impressum .article-header, .page-impressum section {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
-.page-impressum .article-header {
+.page-ueber-das-projekt .article-header, .page-impressum .article-header {
   color: white;
   height: 40vh;
   display: -webkit-box;
@@ -2892,11 +2892,11 @@ body.wpt_test-get-results .results {
           align-items: flex-end;
 }
 
-.page-impressum .article-header h1 {
+.page-ueber-das-projekt .article-header h1, .page-impressum .article-header h1 {
   z-index: 99;
 }
 
-.page-impressum .article-header .headerImage {
+.page-ueber-das-projekt .article-header .headerImage, .page-impressum .article-header .headerImage {
   position: absolute;
   top: 0;
   right: 0;
@@ -2909,14 +2909,14 @@ body.wpt_test-get-results .results {
 }
 
 @media (max-width: 767px) {
-  .page-impressum .article-header .headerImage {
+  .page-ueber-das-projekt .article-header .headerImage, .page-impressum .article-header .headerImage {
     left: -1rem;
     right: -1rem;
     top: 4rem;
   }
 }
 
-.page-impressum p {
+.page-ueber-das-projekt p, .page-impressum p {
   max-width: 45rem;
 }
 
@@ -4030,7 +4030,8 @@ body.home article header .text p {
   top: 2.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background-image: url(../images/close.svg);
+  background-image: url(../images/close_w.svg);
+  background-repeat: no-repeat;
   background-position: center;
 }
 
@@ -4106,14 +4107,16 @@ body.home article header .text p {
 }
 
 .single #content,
-.page-impressum #content {
+.page-impressum #content,
+.page-ueber-das-projekt #content {
   padding-left: 12.5vw;
   padding-right: 12.5vw;
 }
 
 @media (max-width: 767px) {
   .single #content,
-  .page-impressum #content {
+  .page-impressum #content,
+  .page-ueber-das-projekt #content {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -4121,11 +4124,13 @@ body.home article header .text p {
 
 @media (min-width: 576px) {
   .single.single-format-quote,
-  .page-impressum.single-format-quote {
+  .page-impressum.single-format-quote,
+  .page-ueber-das-projekt.single-format-quote {
     overflow: hidden;
   }
   .single.single-format-quote #content,
-  .page-impressum.single-format-quote #content {
+  .page-impressum.single-format-quote #content,
+  .page-ueber-das-projekt.single-format-quote #content {
     padding-left: 50%;
     padding-right: 0;
   }
@@ -4645,7 +4650,7 @@ body.single-format-image h2 {
 }
 
 body.single-format-image #svg {
-  width: 50%;
+  width: 100%;
   height: 100%;
   position: fixed;
   left: 0;
@@ -4666,6 +4671,16 @@ body.single-format-image #svg {
           flex-direction: row;
 }
 
+body.single-format-image #svg::before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 20%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  content: '';
+}
+
 @media (max-width: 767px) {
   body.single-format-image #svg {
     width: 100%;
@@ -4680,9 +4695,9 @@ body.single-format-image #svg {
 
 body.single-format-image #svg svg {
   position: relative;
-  left: 6rem;
-  height: 80vh;
   font-size: 1.125rem !important;
+  height: 100%;
+  width: 100%;
 }
 
 @media (max-width: 767px) {
@@ -4693,16 +4708,140 @@ body.single-format-image #svg svg {
   }
 }
 
+body.single-format-image #svg svg #bodyText {
+  -webkit-transform: translateX(-120px);
+          transform: translateX(-120px);
+}
+
+body.single-format-image #svg svg #snake {
+  opacity: 0;
+}
+
+body.single-format-image #svg svg #connect {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+}
+
+body.single-format-image #svg svg #fear, body.single-format-image #svg svg #brain, body.single-format-image #svg svg #nniere {
+  opacity: 0;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    stroke-width: 2;
+  }
+  20% {
+    stroke-width: 10;
+  }
+  100% {
+    stroke-width: 10;
+  }
+}
+
+@keyframes blink {
+  0% {
+    stroke-width: 2;
+  }
+  20% {
+    stroke-width: 10;
+  }
+  100% {
+    stroke-width: 10;
+  }
+}
+
 body.single-format-image #svg svg #igelText {
-  -webkit-transform: translateX(-63px) translateY(-19px);
-          transform: translateX(-63px) translateY(-19px);
+  opacity: 0;
 }
 
 body.single-format-image #svg svg #igelText g {
   cursor: pointer;
 }
 
-body.single-format-image .text {
+body.single-format-image .text, body.single-format-image .empty {
+  width: 50vw;
+  float: right;
+  padding-right: 6.25vw;
+  text-align: center;
+  position: relative;
+  z-index: 99;
+}
+
+@media (max-width: 767px) {
+  body.single-format-image .text, body.single-format-image .empty {
+    width: 100%;
+    float: none;
+    height: auto;
+    position: relative;
+    padding-right: 0;
+  }
+}
+
+body.single-format-image .scrollIndicator {
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  -webkit-transform: translateY(100%) rotate(-90deg);
+          transform: translateY(100%) rotate(-90deg);
+  background-image: url(../images/arrow-left.svg);
+  background-size: 1.8rem auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: calc( 80vh - 4.5rem);
+  border: 4px solid white;
+  margin-left: -1.5rem;
+}
+
+body.single-format-image .introduction {
+  height: 100vh;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 40vh;
+  padding-bottom: 20%;
+}
+
+body.single-format-image .introduction .author {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  position: relative;
+  padding-top: 0.5rem;
+  border-top: 4px solid white;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+}
+
+body.single-format-image .introduction h2 {
+  font-size: 3.5rem;
+}
+
+body.single-format-image .longSnip {
+  background-color: white;
+  box-shadow: 1rem 1rem 0 0.5rem rgba(0, 0, 0, 0.53);
+  color: #060712;
+  padding: 2rem;
+  margin-bottom: 8rem;
+}
+
+body.single-format-image .longSnip:last-of-type {
+  margin-bottom: 0;
+}
+
+body.single-format-image .empty {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4716,22 +4855,8 @@ body.single-format-image .text {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 50vw;
-  height: 100%;
-  float: right;
-  padding-right: 6.25vw;
+  float: none;
   text-align: center;
-  position: relative;
-}
-
-@media (max-width: 767px) {
-  body.single-format-image .text {
-    width: 100%;
-    float: none;
-    height: auto;
-    position: relative;
-    padding-right: 0;
-  }
 }
 
 body.single-format-image .snippet-long {
@@ -4749,6 +4874,24 @@ body.single-format-image .snippets {
   opacity: 0;
   z-index: 9;
   box-shadow: 1rem 1rem 0 0.5rem rgba(0, 0, 0, 0.53);
+  /* &.introduction {
+            padding: 4rem;
+            p {
+                text-align: center;
+            }
+            
+            @include media-breakpoint-down(sm) {
+            position: relative;
+            left: 0; 
+            top:4rem;    
+            background-color: transparent;
+            color:white;  
+            transform: translateX(0) !important;     
+            height: auto; 
+            opacity: 1;    
+            }
+            
+        }*/
 }
 
 @media (max-width: 767px) {
@@ -4756,7 +4899,6 @@ body.single-format-image .snippets {
     width: 100%;
     height: 100%;
     box-shadow: none;
-    position: fixed;
     top: 0;
     left: 0;
     z-index: 9999999999;
@@ -4779,28 +4921,6 @@ body.single-format-image .snippets .closeBtn {
 @media (min-width: 576px) {
   body.single-format-image .snippets .closeBtn {
     display: none;
-  }
-}
-
-body.single-format-image .snippets.introduction {
-  padding: 4rem;
-}
-
-body.single-format-image .snippets.introduction p {
-  text-align: center;
-}
-
-@media (max-width: 767px) {
-  body.single-format-image .snippets.introduction {
-    position: relative;
-    left: 0;
-    top: 4rem;
-    background-color: transparent;
-    color: white;
-    -webkit-transform: translateX(0) !important;
-            transform: translateX(0) !important;
-    height: auto;
-    opacity: 1;
   }
 }
 
