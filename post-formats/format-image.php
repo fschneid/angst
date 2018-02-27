@@ -1,7 +1,10 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf'); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="text">
-        <div class="scrollIndicator"></div>
+        <div class="scrollIndicator">
+        <span class="icon"></span>
+        <span>scroll</span>    
+        </div>
         <div class="introduction">
             <h3>Infografik</h3>
             <h2>Alarm im Körper</h2>

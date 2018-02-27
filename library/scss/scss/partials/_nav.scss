@@ -13,6 +13,14 @@
     }    
 }
 
+
+body.single-format-image {
+    nav{
+    @include media-breakpoint-down(sm){    
+     background-color: #2c2c2c !important;    
+    }}
+}
+
 .page-impressum{
 nav.main .brand{
     display: block;
